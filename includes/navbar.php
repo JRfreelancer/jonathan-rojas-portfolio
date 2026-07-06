@@ -14,7 +14,9 @@
                 height="64"
                 alt="Logotipo de Jonathan Rojas">
 
-            <span>Jonathan Rojas</span>
+                <div class="logo-text">
+        <span class="logo-name">Jonathan Rojas</span>
+    </div>
         </a>
 
         <!-- ===================== CONTENEDOR DEL MENÚ ===================== -->
@@ -23,7 +25,7 @@
 
             <ul class="main-nav-list">
 
-                <li class="main-nav-link">
+                <li class="main-nav-item">
                     <a
                         class="main-nav-link <?= claseActiva('index.php', $paginaActual) ?>"
                         href="index.php"
@@ -32,7 +34,7 @@
                     </a>
                 </li>
 
-                <li class="main-nav-link">
+                <li class="main-nav-item">
                     <a
                         class="main-nav-link <?= claseActiva('acerca.php', $paginaActual) ?>"
                         href="acerca.php"
@@ -41,7 +43,7 @@
                     </a>
                 </li>
 
-                <li class="main-nav-link">
+                <li class="main-nav-item">
                     <a
                         class="main-nav-link <?= claseActiva('proyectos.php', $paginaActual) ?>"
                         href="proyectos.php"
@@ -50,7 +52,7 @@
                     </a>
                 </li>
 
-                <li class="main-nav-link">
+                <li class="main-nav-item">
                     <a
                         class="main-nav-link <?= claseActiva('diseno-web.php', $paginaActual) ?>"
                         href="diseno-web.php"
@@ -59,7 +61,7 @@
                     </a>
                 </li>
 
-                <li class="main-nav-link">
+                <li class="main-nav-item">
                     <a
                         class="main-nav-link <?= claseActiva('diseno-grafico.php', $paginaActual) ?>"
                         href="diseno-grafico.php"
@@ -68,7 +70,7 @@
                     </a>
                 </li>
 
-                <li class="main-nav-link">
+                <li class="main-nav-item">
                     <a
                         class="main-nav-link <?= claseActiva('contacto.php', $paginaActual) ?>"
                         href="contacto.php"

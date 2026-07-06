@@ -3,8 +3,6 @@
    Jonathan Rojas - Portafolio Profesional
    ========================================================================== */
 
-
-
 /* ==========================================================================
    CONTENEDOR
    ========================================================================== */
@@ -33,9 +31,8 @@
 
 .logo-link {
   display: flex;
-
   align-items: center;
-
+  gap: 0.85rem;
   text-decoration: none;
 }
 
@@ -47,14 +44,47 @@
   object-fit: contain;
 
   transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
+    transform 0.45s ease,
+    filter 0.45s ease;
 }
 
 .logo-link:hover img {
-  transform: rotate(-6deg) scale(1.08);
+  transform: translateY(-2px) rotate(-6deg) scale(1.1);
 
-  filter: drop-shadow(0 6px 18px rgba(34, 211, 238, 0.35));
+  filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.55))
+    drop-shadow(0 0 24px rgba(34, 211, 238, 0.4));
+}
+
+.logo-text {
+  position: relative;
+  font-family: var(--fuente-principal);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  transition: color 0.35s ease;
+}
+
+.logo-text::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--color-primary);
+
+  transition: width 0.35s ease;
+}
+
+.logo-link:hover .logo-text {
+  color: var(--color-primary);
+}
+
+.logo-link:hover .logo-text::after {
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -62,9 +92,9 @@
    ========================================================================== */
 
 .desktop-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-nav-list {
@@ -83,14 +113,14 @@
   list-style: none;
 }
 
-.main-nav-link a {
+.main-nav-item a {
   position: relative;
   display: inline-flex;
   align-items: center;
 
   padding: 1.4rem 0;
 
-  color: var(--color-gris-900);
+  color: var(--color-blanco);
   text-decoration: none;
 
   font-family: var(--fuente-secundaria);
@@ -100,7 +130,7 @@
   transition: color 0.3s ease;
 }
 
-.main-nav-link a::after {
+.main-nav-item a::after {
   content: "";
 
   position: absolute;
@@ -128,15 +158,15 @@
     opacity 0.35s ease;
 }
 
-.main-nav-link a:hover,
-.main-nav-link a.active {
+.main-nav-item a:hover,
+.main-nav-item a.active {
   color: var(--color-primary);
 
   text-shadow: 0 0 8px rgba(34, 211, 238, 0.25);
 }
 
-.main-nav-link a:hover::after,
-.main-nav-link a.active::after {
+.main-nav-item a:hover::after,
+.main-nav-item a.active::after {
   width: 100%;
   opacity: 1;
 }
@@ -201,27 +231,20 @@
   box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
 }
 
-
-
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 991px) {
+  .main-navigation {
+    grid-template-columns: auto auto;
+  }
 
-    .main-navigation {
-        grid-template-columns: auto auto;
-    }
+  .btn-login {
+    display: none;
+  }
 
-    .btn-login {
-        display: none;
-    }
-
-    .desktop-nav {
-        display: none;
-    }
-
+  .desktop-nav {
+    display: none;
+  }
 }
-
-
-

@@ -13,27 +13,27 @@
   cursor: pointer;
 }
 
-.main-nav-link {
+.main-nav-item {
   position: relative;
 }
 
-.main-nav-link:hover {
+.main-nav-item:hover {
   transform: none;
 }
 
-.main-nav-link a.active {
+.main-nav-item a.active {
   color: var(--color-primary);
 
   font-weight: 700;
 }
 
-.main-nav-link a {
+.main-nav-item a {
   transition:
     color 0.25s ease,
     transform 0.25s ease;
 }
 
-.main-nav-link a:hover {
+.main-nav-item a:hover {
   transform: translateY(-2px);
 }
 
@@ -88,16 +88,10 @@
   }
 
   /* Panel lateral */
-
 }
 
 @media (max-width: 991px) {
-
-
- 
-
-
-  .main-nav-link a:hover {
+  .main-nav-item a:hover {
     background: rgba(34, 211, 238, 0.1);
   }
 }
@@ -139,4 +133,3 @@
     background: rgba(34, 211, 238, 0.15);
   }
 }
-

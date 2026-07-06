@@ -32,3 +32,31 @@ function ariaActual($archivo, $paginaActual)
 {
     return $archivo === $paginaActual ? 'aria-current="page"' : '';
 }
+
+$menu = [
+    [
+        'titulo' => 'Inicio',
+        'url'    => 'index.php'
+    ],
+    [
+        'titulo' => 'Sobre mí',
+        'url'    => 'acerca.php'
+    ],
+    [
+        'titulo' => 'Proyectos',
+        'url'    => 'proyectos.php'
+    ],
+    [
+        'titulo' => 'Diseño Web',
+        'url'    => 'diseno-web.php'
+    ],
+    [
+        'titulo' => 'Diseño Gráfico',
+        'url'    => 'diseno-grafico.php'
+    ],
+    [
+        'titulo' => 'Contacto',
+        'url'    => 'contacto.php'
+    ]
+];
+
