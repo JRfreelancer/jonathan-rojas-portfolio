@@ -72,7 +72,7 @@
 
     background: transparent;
 
-    color: var(--color-gris-900);
+    color: var(--color-azul-turquesa);
 
     font-size: 1.4rem;
 
@@ -82,17 +82,25 @@
   }
 
   .btn-abrir-menu:hover {
-    background: rgba(34, 211, 238, 0.1);
+    color: var(--color-secundario);
 
-    color: var(--color-primary);
+    transform: scale(1.08);
+
+    text-shadow:
+      0 0 8px rgba(34, 211, 238, 0.45),
+      0 0 18px rgba(34, 211, 238, 0.25);
+  }
+
+  .btn-abrir-menu:active {
+    transform: scale(0.96);
   }
 
   /* Panel lateral */
 }
 
 @media (max-width: 991px) {
-  .main-nav-item a:hover {
-    background: rgba(34, 211, 238, 0.1);
+  .main-navigation {
+    grid-template-columns: 1fr auto;
   }
 }
 

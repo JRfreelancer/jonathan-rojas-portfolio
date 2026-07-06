@@ -14,9 +14,9 @@
                 height="64"
                 alt="Logotipo de Jonathan Rojas">
 
-                <div class="logo-text">
-        <span class="logo-name">Jonathan Rojas</span>
-    </div>
+            <div class="logo-text">
+                <span class="logo-name">Jonathan Rojas</span>
+            </div>
         </a>
 
         <!-- ===================== CONTENEDOR DEL MENÚ ===================== -->
@@ -25,59 +25,22 @@
 
             <ul class="main-nav-list">
 
-                <li class="main-nav-item">
-                    <a
-                        class="main-nav-link <?= claseActiva('index.php', $paginaActual) ?>"
-                        href="index.php"
-                        <?= ariaActual('index.php', $paginaActual) ?>>
-                        Inicio
-                    </a>
-                </li>
+                <?php foreach ($menu as $item): ?>
 
-                <li class="main-nav-item">
-                    <a
-                        class="main-nav-link <?= claseActiva('acerca.php', $paginaActual) ?>"
-                        href="acerca.php"
-                        <?= ariaActual('acerca.php', $paginaActual) ?>>
-                        Sobre mí
-                    </a>
-                </li>
+                    <li class="main-nav-item">
 
-                <li class="main-nav-item">
-                    <a
-                        class="main-nav-link <?= claseActiva('proyectos.php', $paginaActual) ?>"
-                        href="proyectos.php"
-                        <?= ariaActual('proyectos.php', $paginaActual) ?>>
-                        Proyectos
-                    </a>
-                </li>
+                        <a
+                            href="<?= $item['url']; ?>"
+                            class="<?= claseActiva($item['url'], $paginaActual); ?>"
+                            <?= ariaActual($item['url'], $paginaActual); ?>>
 
-                <li class="main-nav-item">
-                    <a
-                        class="main-nav-link <?= claseActiva('diseno-web.php', $paginaActual) ?>"
-                        href="diseno-web.php"
-                        <?= ariaActual('diseno-web.php', $paginaActual) ?>>
-                        Diseño web
-                    </a>
-                </li>
+                            <?= htmlspecialchars($item['titulo'], ENT_QUOTES, 'UTF-8'); ?>
 
-                <li class="main-nav-item">
-                    <a
-                        class="main-nav-link <?= claseActiva('diseno-grafico.php', $paginaActual) ?>"
-                        href="diseno-grafico.php"
-                        <?= ariaActual('diseno-grafico.php', $paginaActual) ?>>
-                        Diseño gráfico
-                    </a>
-                </li>
+                        </a>
 
-                <li class="main-nav-item">
-                    <a
-                        class="main-nav-link <?= claseActiva('contacto.php', $paginaActual) ?>"
-                        href="contacto.php"
-                        <?= ariaActual('contacto.php', $paginaActual) ?>>
-                        Contacto
-                    </a>
-                </li>
+                    </li>
+
+                <?php endforeach; ?>
 
             </ul>
 

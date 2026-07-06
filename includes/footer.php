@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ============================================================================
  * COMPONENTE: FOOTER
@@ -15,6 +16,8 @@
  * ============================================================================
  */
 ?>
+
+<?php require_once __DIR__ . '/navigation.php'; ?>
 
 <footer id="footer" class="footer" role="contentinfo">
 
@@ -58,7 +61,7 @@
                  Navegación del sitio
             ================================================================ -->
             <nav class="col-lg-3 mb-5 mb-lg-0"
-                 aria-label="Navegación del pie de página">
+                aria-label="Navegación del pie de página">
 
                 <h3 class="footer-title">
                     Navegación
@@ -66,17 +69,19 @@
 
                 <ul class="footer-menu list-unstyled">
 
-                    <li><a href="index.php">Inicio</a></li>
+                    <?php foreach ($menu as $item): ?>
 
-                    <li><a href="acerca.php">Acerca de mí</a></li>
+                        <li>
 
-                    <li><a href="proyectos.php">Proyectos</a></li>
+                            <a href="<?= htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8'); ?>">
 
-                    <li><a href="d_web.php">Diseño Web</a></li>
+                                <?= htmlspecialchars($item['titulo'], ENT_QUOTES, 'UTF-8'); ?>
 
-                    <li><a href="d_grafico.php">Diseño Gráfico</a></li>
+                            </a>
 
-                    <li><a href="contacto.php">Contacto</a></li>
+                        </li>
+
+                    <?php endforeach; ?>
 
                 </ul>
 
@@ -124,25 +129,25 @@
                 </h3>
 
                 <div class="footer-social"
-                     aria-label="Redes sociales">
+                    aria-label="Redes sociales">
 
                     <a href="#"
-                       aria-label="GitHub">
+                        aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
 
                     <a href="#"
-                       aria-label="LinkedIn">
+                        aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
 
                     <a href="#"
-                       aria-label="Instagram">
+                        aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
 
                     <a href="#"
-                       aria-label="WhatsApp">
+                        aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
 
@@ -185,5 +190,3 @@
     </div>
 
 </footer>
-
-

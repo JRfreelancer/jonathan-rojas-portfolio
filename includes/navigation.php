@@ -36,11 +36,15 @@ function ariaActual($archivo, $paginaActual)
 $menu = [
     [
         'titulo' => 'Inicio',
-        'url'    => 'index.php'
+        'url' => 'index.php',
+        'icono' => 'fa-house',
+        'mostrar_footer' => true
     ],
-    [
+     [
         'titulo' => 'Sobre mí',
-        'url'    => 'acerca.php'
+        'url' => 'acerca.php',
+        'icono' => 'fa-user',
+        'mostrar_footer' => true
     ],
     [
         'titulo' => 'Proyectos',

@@ -176,9 +176,8 @@
 
 .nav-buttons {
   display: flex;
-
+  justify-content: flex-end;
   align-items: center;
-
   gap: 1rem;
 }
 
@@ -246,5 +245,13 @@
 
   .desktop-nav {
     display: none;
+  }
+
+  .main-navigation {
+    grid-template-columns: 1fr auto;
+
+    align-items: center;
+
+    padding-inline: 1rem;
   }
 }
