@@ -2,6 +2,19 @@
 ### Desarrollador Web | Diseñador Web | Freelancer
 # 💼 Jonathan Rojas | Portafolio Profesional
 
+## 👋 Sobre mí
+
+Soy Jonathan Rojas, desarrollador web en formación y profesional con más de 23 años de experiencia en el área tecnológica del Instituto Nacional Penitenciario y Carcelario (INPEC).
+
+Actualmente estudio Desarrollo de Software en el SENA y me especializo en la creación de sitios web modernos, accesibles y responsivos utilizando HTML5, CSS3, JavaScript y PHP.
+
+Disfruto construir interfaces limpias, optimizar la experiencia del usuario y aplicar buenas prácticas de desarrollo para crear soluciones escalables y mantenibles.
+
+
+
+
+
+
 Bienvenido a mi portafolio profesional de desarrollo web.
 
 Este proyecto reúne mi trabajo como desarrollador web y diseñador, donde aplico buenas prácticas de programación, diseño responsivo, accesibilidad y organización de código para crear sitios modernos, rápidos y escalables.
@@ -32,12 +45,14 @@ Actualmente el proyecto se encuentra en desarrollo continuo y se actualiza const
 
 ## 🛠 Tecnologías utilizadas
 
-* HTML5
-* CSS3
-* JavaScript (ES6+)
-* PHP 8
-* Git
-* GitHub
+| Categoría            | Tecnologías                  |
+| -------------------- | ---------------------------- |
+| Frontend             | HTML5 · CSS3 · JavaScript    |
+| Backend              | PHP                          |
+| Control de versiones | Git · GitHub                 |
+| Diseño               | Responsive Design            |
+| Herramientas         | Laragon · Visual Studio Code |
+
 
 ---
 
@@ -84,13 +99,38 @@ Próximamente se agregarán imágenes del portafolio mostrando las diferentes se
 
 ---
 
-## 📈 Estado del proyecto
+## 🚀 Estado
 
-🟢 En desarrollo activo.
+🟢 Desarrollo activo
 
-Se continúan agregando nuevas secciones, mejoras visuales y optimizaciones de rendimiento.
+Actualmente continúo mejorando el diseño, la arquitectura y el rendimiento del portafolio.
+---
 
 ---
+## 📌 Roadmap
+
+- ✅ Navbar responsive
+- ✅ Footer profesional
+- ✅ Arquitectura CSS modular
+- ✅ Optimización de imágenes
+- 🔄 Hero Section
+- 🔄 Servicios
+- 🔄 Portafolio
+- 🔄 Animaciones
+- 🔄 Contacto
+- 🔄 Optimización SEO
+
+  ---
+
+  ## 💡 Próximas mejoras
+
+- Modo oscuro.
+- Animaciones avanzadas.
+- Lazy Loading.
+- Optimización Lighthouse.
+- SEO avanzado.
+- Formularios con PHP.
+- Integración con GitHub.
 
 ## 💻 Instalación
 
