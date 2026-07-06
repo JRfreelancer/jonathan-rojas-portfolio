@@ -1,3 +1,5 @@
+# 💻 Jonathan Rojas
+### Desarrollador Web | Diseñador Web | Freelancer
 # 💼 Jonathan Rojas | Portafolio Profesional
 
 Bienvenido a mi portafolio profesional de desarrollo web.
