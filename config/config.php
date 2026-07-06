@@ -1,0 +1,1 @@
+define('BASE_URL', '/PORTAFOLIO_WEB/');

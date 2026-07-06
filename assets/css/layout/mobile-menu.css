@@ -1,0 +1,210 @@
+/* ==========================================================================
+   PANEL PRINCIPAL
+   ========================================================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: min(90vw, 380px);
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(2, 8, 23, 0.96);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.35);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  z-index: 1100;
+
+  transform: translateX(100%);
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.35s;
+}
+
+/* ==========================================================================
+   MENÚ ABIERTO
+   ========================================================================== */
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   CONTENIDO
+   ========================================================================== */
+
+.mobile-menu-content {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 100%;
+
+  padding: 1.5rem;
+}
+
+/* ==========================================================================
+   CABECERA
+   ========================================================================== */
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   NAVEGACIÓN
+   ========================================================================== */
+
+.mobile-nav {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   LOGIN
+   ========================================================================== */
+
+.mobile-login {
+  margin-top: 2rem;
+
+  padding-top: 1.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   ENLACES
+   ========================================================================== */
+
+.mobile-nav a {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 1rem 1.25rem;
+
+  border-radius: var(--radius-md);
+
+  color: var(--color-azul-turquesa);
+
+  text-decoration: none;
+
+  font-family: var(--fuente-secundaria);
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible {
+  background: rgba(34, 211, 238, 0.1);
+
+  color: var(--color-primary);
+
+  transform: translateX(0.35rem);
+
+  outline: none;
+}
+
+.mobile-nav a.active {
+  background: rgba(34, 211, 238, 0.15);
+
+  color: var(--color-primary);
+
+  font-weight: 700;
+}
+
+.mobile-nav a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu-title {
+  margin: 0;
+
+  color: var(--color-primary);
+
+  font-family: var(--fuente-secundaria);
+  font-size: 1.35rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   BOTÓN CERRAR
+   ========================================================================== */
+
+.btn-cerrar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--color-primary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.btn-cerrar-menu i {
+  font-size: 1.35rem;
+}
+
+.btn-cerrar-menu:hover {
+  background: rgba(34, 211, 238, 0.12);
+
+  transform: rotate(90deg);
+}
+
+.btn-cerrar-menu:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}

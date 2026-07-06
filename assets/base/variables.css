@@ -1,0 +1,72 @@
+/* ==========================================================================
+   VARIABLES GLOBALES
+========================================================================== */
+
+:root {
+  /* ===== Colores ===== */
+
+  --color-primario: #020817;
+  --color-secundario: #ffffff;
+
+  --color-azul-oscuro: #03133f;
+  --color-azul-turquesa: #22d3ee;
+
+  --color-gris-100: #f8fafc;
+  --color-gris-200: #e2e8f0;
+  --color-gris-400: #94a3b8;
+  --color-gris-600: #475569;
+  --color-gris-900: #0f172a;
+
+  --color-amarillo: #facc15;
+  --color-verde: #16a34a;
+  --color-rojo: #ef4444;
+
+  /* ===== Tipografía ===== */
+
+  --fuente-principal: "Outfit", sans-serif;
+  --fuente-secundaria: "Inter", sans-serif;
+
+  --line-height-base: 1.6;
+
+  /* ===== Espaciados ===== */
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+
+  /* ===== Bordes ===== */
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --radius-pill: 999px;
+
+  /* ===== Sombras ===== */
+
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.3);
+
+  /* ===== Transiciones ===== */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* ===== Layout ===== */
+
+  --container-max-width: 1320px;
+  --navbar-height: 84px;
+
+  /* ===== Variables semánticas ===== */
+
+  --color-background: var(--color-primario);
+  --color-text: var(--color-secundario);
+  --color-primary: var(--color-azul-turquesa);
+
+  --container-width: var(--container-max-width);
+}

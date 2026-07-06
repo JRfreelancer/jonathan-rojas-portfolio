@@ -1,0 +1,227 @@
+/* ==========================================================================
+   NAVBAR
+   Jonathan Rojas - Portafolio Profesional
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   CONTENEDOR
+   ========================================================================== */
+
+.main-navigation {
+  max-width: var(--container-width);
+
+  height: var(--navbar-height);
+
+  margin-inline: auto;
+
+  padding-inline: 1.5rem;
+
+  display: grid;
+
+  grid-template-columns: auto 1fr auto;
+
+  align-items: center;
+
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   LOGO
+   ========================================================================== */
+
+.logo-link {
+  display: flex;
+
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.logo-link img {
+  width: 48px;
+
+  height: 48px;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.logo-link:hover img {
+  transform: rotate(-6deg) scale(1.08);
+
+  filter: drop-shadow(0 6px 18px rgba(34, 211, 238, 0.35));
+}
+
+/* ==========================================================================
+   MENÚ
+   ========================================================================== */
+
+.desktop-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav-list {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 2.5rem;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.main-nav-link a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  padding: 1.4rem 0;
+
+  color: var(--color-gris-900);
+  text-decoration: none;
+
+  font-family: var(--fuente-secundaria);
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+}
+
+.main-nav-link a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 8px;
+
+  width: 0;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, #22d3ee, #67e8f9, #22d3ee);
+
+  transform: translateX(-50%);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 8px rgba(34, 211, 238, 0.45),
+    0 0 18px rgba(34, 211, 238, 0.3);
+
+  transition:
+    width 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.main-nav-link a:hover,
+.main-nav-link a.active {
+  color: var(--color-primary);
+
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.25);
+}
+
+.main-nav-link a:hover::after,
+.main-nav-link a.active::after {
+  width: 100%;
+  opacity: 1;
+}
+/* ==========================================================================
+   BOTONES DE ACCIÓN
+   ========================================================================== */
+
+.nav-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.btn-login {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  padding: 0.8rem 1.4rem;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--color-primary);
+
+  color: var(--color-gris-900);
+
+  font-family: var(--fuente-secundaria);
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(34, 211, 238, 0.3),
+    0 0 18px rgba(34, 211, 238, 0.2);
+}
+
+.btn-login i {
+  font-size: 0.95rem;
+}
+
+.btn-login:active {
+  transform: translateY(0);
+
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
+}
+
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 991px) {
+
+    .main-navigation {
+        grid-template-columns: auto auto;
+    }
+
+    .btn-login {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+}
+
+
+

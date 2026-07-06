@@ -1,0 +1,142 @@
+/* ==========================================================================
+   BOTÓN HAMBURGUESA
+   ========================================================================== */
+
+.btn-abrir-menu,
+.btn-cerrar-menu {
+  display: none;
+
+  border: none;
+
+  background: none;
+
+  cursor: pointer;
+}
+
+.main-nav-link {
+  position: relative;
+}
+
+.main-nav-link:hover {
+  transform: none;
+}
+
+.main-nav-link a.active {
+  color: var(--color-primary);
+
+  font-weight: 700;
+}
+
+.main-nav-link a {
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.main-nav-link a:hover {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MENÚ RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Layout */
+
+  .main-navigation {
+    grid-template-columns: auto auto;
+  }
+
+  /* Login oculto en la barra superior */
+
+  .btn-login {
+    display: none;
+  }
+
+  /* Botón hamburguesa */
+
+  .btn-abrir-menu {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--color-gris-900);
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+  }
+
+  .btn-abrir-menu:hover {
+    background: rgba(34, 211, 238, 0.1);
+
+    color: var(--color-primary);
+  }
+
+  /* Panel lateral */
+
+}
+
+@media (max-width: 991px) {
+
+
+ 
+
+
+  .main-nav-link a:hover {
+    background: rgba(34, 211, 238, 0.1);
+  }
+}
+
+/*boton cerrar */
+@media (max-width: 991px) {
+  .btn-cerrar-menu {
+    display: flex;
+
+    position: absolute;
+
+    top: 24px;
+
+    right: 24px;
+
+    width: 44px;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+    transform: scale(1.08);
+  }
+
+  .btn-cerrar-menu:hover {
+    background: rgba(34, 211, 238, 0.15);
+  }
+}
+

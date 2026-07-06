@@ -1,0 +1,18 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración de VSCode
+.vscode/
+
+# Logs
+*.log
+
+# Dependencias
+vendor/
+
+# Node
+node_modules/
+
+# Archivos temporales
+*.tmp

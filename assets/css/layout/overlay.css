@@ -1,0 +1,28 @@
+/* ==========================================================================
+   OVERLAY
+   ========================================================================== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(2, 8, 23, 0.55);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 1090;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+}
