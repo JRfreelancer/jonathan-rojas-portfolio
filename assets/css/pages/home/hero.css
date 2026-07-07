@@ -1,0 +1,368 @@
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  background: var(--color-primario);
+}
+
+.hero-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: clamp(3rem, 5vw, 6rem);
+
+  width: min(1400px, 92%);
+
+  margin-inline: auto;
+
+  padding-block: 8rem 5rem;
+}
+
+/* ==========================================================
+   HERO CONTENT
+========================================================== */
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  width: fit-content;
+
+  padding: 0.7rem 1.3rem;
+
+  border: 1px solid rgba(34, 211, 238, 0.3);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(12px);
+
+  color: var(--color-azul-turquesa);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.hero-badge i {
+  font-size: 0.55rem;
+  color: #22d3ee;
+}
+
+/* ==========================================================
+   HERO TITLE
+========================================================== */
+
+.hero-title {
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0;
+
+  line-height: 0.95;
+
+  color: var(--color-secundario);
+
+  font-weight: 800;
+
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+
+.hero-name {
+  margin-top: 0.5rem;
+}
+
+.hero-lastname {
+  color: var(--color-azul-turquesa);
+}
+
+.hero-specialties {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.8rem;
+
+  align-items: center;
+
+  color: var(--color-gris-claro);
+
+  font-size: clamp(1rem, 2vw, 1.3rem);
+
+  font-weight: 500;
+}
+
+.hero-specialties span {
+  color: var(--color-amarillo);
+}
+
+.hero-description {
+  max-width: 620px;
+
+  color: var(--color-gris-claro);
+
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+
+  gap: 1rem;
+
+  flex-wrap: wrap;
+
+  margin-top: 0.5rem;
+}
+
+.hero-features {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 2rem;
+
+  margin: 1rem 0 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.hero-features li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  color: var(--color-secundario);
+
+  font-size: 0.95rem;
+}
+
+.hero-features i {
+  color: var(--color-azul-turquesa);
+}
+
+/* ==========================================================
+   HERO SHOWCASE
+========================================================== */
+
+.hero-showcase {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  justify-self: end;
+
+  width: 100%;
+
+  max-width: 560px;
+}
+
+/** ==== ventanas ===========*/
+.showcase-window {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Barra superior */
+.window-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 1rem 1.4rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Botones macOS */
+.window-controls {
+  display: flex;
+
+  gap: 0.55rem;
+}
+
+.window-dot {
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f57;
+}
+
+.yellow {
+  background: #febc2e;
+}
+
+.green {
+  background: #28c840;
+}
+
+/* ===========Títulos===============*/
+.window-title {
+  font-size: 0.9rem;
+
+  color: var(--color-gris-claro);
+
+  font-weight: 600;
+}
+
+/* ===========Panel===============*/
+.showcase-view {
+  position: relative;
+
+  aspect-ratio: 4/5;
+
+  overflow: hidden;
+}
+
+/* ===========imagen===============*/
+.showcase-image {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* ===========Overlay===============*/
+.showcase-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+
+    rgba(2, 8, 23, 0.95),
+    rgba(2, 8, 23, 0.15)
+  );
+}
+
+/* ==========================================================
+   HERO LAYOUT
+========================================================== */
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--color-primario);
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.hero-wrapper {
+  width: min(1400px, 92%);
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(520px, 0.9fr);
+
+  gap: clamp(3rem, 5vw, 6rem);
+
+  align-items: center;
+
+  padding-block: 8rem 5rem;
+}
+
+.hero-content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 1.5rem;
+}
+
+/* ==============================
+   1400px
+================================ */
+
+@media (max-width: 1400px) {
+}
+
+/* ==============================
+   1200px
+================================ */
+
+@media (max-width: 1200px) {
+}
+
+/* ==============================
+   992px
+================================ */
+
+@media (max-width: 992px) {
+}
+
+/* ==============================
+   768px
+================================ */
+
+@media (max-width: 768px) {
+}
+
+/* ==============================
+   576px
+================================ */
+
+@media (max-width: 576px) {
+}

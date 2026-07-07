@@ -26,9 +26,9 @@
 @import url("components/utilities.css");
 
 /* Páginas */
-@import url("pages/home.css");
+@import url("pages/home/index.css");
+@import url("pages/about.css");
 @import url("pages/contact.css");
 @import url("pages/graphic-design.css");
-@import url("pages/home.css");
 @import url("pages/projects.css");
 @import url("pages/web-design.css");

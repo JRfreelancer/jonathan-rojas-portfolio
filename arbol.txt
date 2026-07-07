@@ -1,5 +1,5 @@
 ﻿Listado de rutas de carpetas para el volumen Sistema
-El n·mero de serie del volumen es 0000008F F671:EC6C
+El n·mero de serie del volumen es 00000078 F671:EC6C
 C:.
 |   .gitignore
 |   .htaccess
@@ -18,15 +18,15 @@ C:.
 |   
 +---assets
 |   +---audio
-|   +---base
-|   |       globlal.css
-|   |       reset.css
-|   |       typography.css
-|   |       variables.css
-|   |       
 |   +---css
 |   |   |   styles.css
 |   |   |   
+|   |   +---base
+|   |   |       global.css
+|   |   |       reset.css
+|   |   |       typography.css
+|   |   |       variables.css
+|   |   |       
 |   |   +---components
 |   |   |       animations.css
 |   |   |       buttons.css
@@ -44,13 +44,22 @@ C:.
 |   |   |       overlay.css
 |   |   |       
 |   |   \---pages
-|   |           about.css
-|   |           contact.css
-|   |           graphic-design.css
-|   |           home.css
-|   |           projects.css
-|   |           web-design.css
-|   |           
+|   |       |   about.css
+|   |       |   contact.css
+|   |       |   graphic-design.css
+|   |       |   home.css
+|   |       |   projects.css
+|   |       |   web-design.css
+|   |       |   
+|   |       \---home
+|   |               cta.css
+|   |               hero.css
+|   |               home.css
+|   |               projects.css
+|   |               services.css
+|   |               technologies.css
+|   |               testimonials.css
+|   |               
 |   +---downloads
 |   |       Jonathan_rojas_CV.pdf
 |   |       
@@ -69,6 +78,7 @@ C:.
 |   |   |       imagen_slider_03.webp
 |   |   |       imagen_slider_04.jpg
 |   |   |       imagen_slider_04.webp
+|   |   |       laptop.jpg
 |   |   |       
 |   |   +---icons
 |   |   |       icono_64_x_64_fondo_blanco.png
@@ -97,11 +107,14 @@ C:.
 |       site.webmanifest
 |       
 \---includes
-        footer.php
-        head.php
-        loader.php
-        mobile-menu.php
-        navbar.php
-        navigation.php
-        scripts.php
-        
+    |   footer.php
+    |   head.php
+    |   loader.php
+    |   mobile-menu.php
+    |   navbar.php
+    |   navigation.php
+    |   scripts.php
+    |   
+    \---sections
+            hero.php
+            
