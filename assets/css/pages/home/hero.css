@@ -4,32 +4,33 @@
 
 .hero {
   position: relative;
-
+  isolation: isolate;
   overflow: hidden;
 
-  min-height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-
   background: var(--color-primario);
+
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
 }
 
-.hero-container {
-  display: grid;
+/* ==========================================================
+   HERO WRAPPER
+========================================================== */
 
-  grid-template-columns: 1fr 1fr;
-
-  align-items: center;
-
-  gap: clamp(3rem, 5vw, 6rem);
-
+.hero-wrapper {
   width: min(1400px, 92%);
-
   margin-inline: auto;
+  display: grid;
+  grid-template-columns:
+    minmax(420px, 0.9fr)
+    minmax(620px, 1.1fr);
+  align-items: center;
+  gap: clamp(3rem, 5vw, 7rem);
 
-  padding-block: 8rem 5rem;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-2xl);
 }
 
 /* ==========================================================
@@ -40,56 +41,53 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
+  align-items: flex-start;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 40rem;
 }
 
+/* ==========================================================
+   BADGE
+========================================================== */
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-
   width: fit-content;
-
   padding: 0.7rem 1.3rem;
-
   border: 1px solid rgba(34, 211, 238, 0.3);
-
-  border-radius: 999px;
-
+  border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.05);
-
+  transition:
+    background var(--transition-normal),
+    border-color var(--transition-normal);
   backdrop-filter: blur(12px);
-
   color: var(--color-azul-turquesa);
-
   font-size: 0.9rem;
-
   font-weight: 600;
 }
 
 .hero-badge i {
   font-size: 0.55rem;
-  color: #22d3ee;
+  color: var(--color-azul-turquesa);
 }
 
 /* ==========================================================
    HERO TITLE
 ========================================================== */
-
+/* ==========================================================
+   TITLE
+========================================================== */
 .hero-title {
   display: flex;
-
   flex-direction: column;
-
   margin: 0;
-
   line-height: 0.95;
-
   color: var(--color-secundario);
-
   font-weight: 800;
-
   font-size: clamp(3rem, 7vw, 6rem);
+  text-wrap: balance;
 }
 
 .hero-name {
@@ -100,69 +98,51 @@
   color: var(--color-azul-turquesa);
 }
 
+/* ==========================================================
+   SPECIALTIES
+========================================================== */
 .hero-specialties {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 0.8rem;
-
   align-items: center;
-
-  color: var(--color-gris-claro);
-
+  color: var(--color-gris-200);
   font-size: clamp(1rem, 2vw, 1.3rem);
-
   font-weight: 500;
 }
 
-.hero-specialties span {
-  color: var(--color-amarillo);
-}
-
+/* Description */
 .hero-description {
-  max-width: 620px;
-
-  color: var(--color-gris-claro);
-
-  font-size: 1.1rem;
-
+  max-width: var(--content-width);
+  color: var(--color-gris-200);
+  font-size: clamp(1rem, 1vw + 0.6rem, 1.15rem);
   line-height: 1.8;
+  text-wrap: balance;
 }
 
+/* Actions */
 .hero-actions {
   display: flex;
-
-  gap: 1rem;
-
+  gap: var(--space-md);
   flex-wrap: wrap;
-
-  margin-top: 0.5rem;
+  margin-top: var(--space-sm);
 }
 
+/* Features */
 .hero-features {
   display: flex;
-
   flex-wrap: wrap;
-
-  gap: 2rem;
-
-  margin: 1rem 0 0;
-
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
   padding: 0;
-
   list-style: none;
 }
 
 .hero-features li {
   display: flex;
-
   align-items: center;
-
   gap: 0.5rem;
-
   color: var(--color-secundario);
-
   font-size: 0.95rem;
 }
 
@@ -171,99 +151,96 @@
 }
 
 /* ==========================================================
-   HERO SHOWCASE
+   SHOWCASE SLIDER
 ========================================================== */
 
-.hero-showcase {
+.showcase-slider {
   display: flex;
+  align-items: stretch;
+  gap: var(--space-sm);
+  width: 100%;
+  height: clamp(500px, 60vh, 650px);
+}
 
+/* ==========================================================
+   HERO SHOWCASE content
+========================================================== */
+
+.showcase-content {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+
+  display: flex;
   flex-direction: column;
+  gap: var(--space-sm);
 
-  gap: 1.5rem;
+  padding: var(--space-xl);
+  align-items: flex-start;
+  max-width: 90%;
 
-  justify-self: end;
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+
+  pointer-events: none;
+}
+
+.showcase-button {
+  pointer-events: auto;
+}
+
+.showcase-card.active .showcase-content {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* ==========================================================
+   SHOWCASE CARD
+========================================================== */
+
+.showcase-card {
+  position: relative;
+  overflow: hidden;
+
+  flex: 0.6;
+  min-width: 72px;
+
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+
+  background: var(--color-gris-900);
+
+  transition:
+    flex 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.45s ease;
+
+  will-change: flex;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.showcase-card.active {
+  flex: 8;
+}
+
+.showcase-media {
+  position: relative;
 
   width: 100%;
 
-  max-width: 560px;
-}
-
-/** ==== ventanas ===========*/
-.showcase-window {
-  position: relative;
-
-  overflow: hidden;
-
-  border-radius: 24px;
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  background: rgba(255, 255, 255, 0.03);
-
-  backdrop-filter: blur(18px);
-
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-}
-
-/* Barra superior */
-.window-header {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding: 1rem 1.4rem;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Botones macOS */
-.window-controls {
-  display: flex;
-
-  gap: 0.55rem;
-}
-
-.window-dot {
-  width: 12px;
-
-  height: 12px;
-
-  border-radius: 50%;
-}
-
-.red {
-  background: #ff5f57;
-}
-
-.yellow {
-  background: #febc2e;
-}
-
-.green {
-  background: #28c840;
-}
-
-/* ===========Títulos===============*/
-.window-title {
-  font-size: 0.9rem;
-
-  color: var(--color-gris-claro);
-
-  font-weight: 600;
-}
-
-/* ===========Panel===============*/
-.showcase-view {
-  position: relative;
-
-  aspect-ratio: 4/5;
-
+  height: 100%;
   overflow: hidden;
 }
 
-/* ===========imagen===============*/
 .showcase-image {
   width: 100%;
 
@@ -272,64 +249,49 @@
   object-fit: cover;
 
   display: block;
+
+  transition: transform 0.8s ease;
 }
 
-/* ===========Overlay===============*/
+.showcase-card.active .showcase-image {
+  transform: scale(1.05);
+}
+
 .showcase-overlay {
   position: absolute;
 
   inset: 0;
 
+  z-index: 1;
+
   background: linear-gradient(
     to top,
-
-    rgba(2, 8, 23, 0.95),
-    rgba(2, 8, 23, 0.15)
+    rgba(2, 8, 23, 0.95) 10%,
+    rgba(2, 8, 23, 0.45) 55%,
+    rgba(2, 8, 23, 0.1) 100%
   );
+  opacity: 0;
+
+  transition: opacity 0.45s ease;
+}
+
+.showcase-card.active .showcase-overlay {
+  opacity: 1;
 }
 
 /* ==========================================================
-   HERO LAYOUT
+   HERO SHOWCASE
 ========================================================== */
 
-.hero {
-  position: relative;
-
-  overflow: hidden;
-
-  background: var(--color-primario);
-
-  min-height: 100vh;
-
+.hero-showcase {
   display: flex;
-
-  align-items: center;
-}
-
-.hero-wrapper {
-  width: min(1400px, 92%);
-
-  margin-inline: auto;
-
-  display: grid;
-
-  grid-template-columns: minmax(0, 1fr) minmax(520px, 0.9fr);
-
-  gap: clamp(3rem, 5vw, 6rem);
-
-  align-items: center;
-
-  padding-block: 8rem 5rem;
-}
-
-.hero-content {
-  display: flex;
-
   flex-direction: column;
 
-  justify-content: center;
+  width: 100%;
+  max-width: none;
 
-  gap: 1.5rem;
+  justify-self: stretch;
+  align-self: center;
 }
 
 /* ==============================
@@ -351,6 +313,21 @@
 ================================ */
 
 @media (max-width: 992px) {
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 8rem;
+  }
+
+  .hero-content {
+    align-items: center;
+    margin-inline: auto;
+  }
+
+  .hero-showcase {
+    justify-self: center;
+    max-width: 600px;
+  }
 }
 
 /* ==============================

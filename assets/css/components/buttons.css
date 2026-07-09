@@ -1,0 +1,19 @@
+.btn-outline {
+  background: transparent;
+
+  color: var(--color-secundario);
+
+  border: 2px solid rgba(34, 211, 238, 0.45);
+
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  background: rgba(34, 211, 238, 0.12);
+
+  border-color: var(--color-azul-turquesa);
+
+  color: var(--color-secundario);
+
+  transform: translateY(-2px);
+}
