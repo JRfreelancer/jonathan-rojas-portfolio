@@ -25,6 +25,11 @@
 @import url("components/animations.css");
 @import url("components/utilities.css");
 
+/* ==========================================
+   EFFECTS
+========================================== */
+@import url("effects/background-effects.css");
+
 /* Páginas */
 @import url("pages/home/index.css");
 @import url("pages/about.css");

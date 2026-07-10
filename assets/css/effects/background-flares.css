@@ -1,0 +1,94 @@
+/* ==========================================================
+   HERO FLARES
+========================================================== */
+
+.hero-flares {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.flare {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.18;
+
+  mix-blend-mode: screen;
+}
+
+.flare-01 {
+  width: 520px;
+
+  height: 520px;
+
+  left: -180px;
+
+  top: 80px;
+
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.18),
+    transparent 70%
+  );
+  animation: flareFloat 18s ease-in-out infinite;
+}
+
+.flare-02 {
+  width: 620px;
+
+  height: 620px;
+
+  right: -160px;
+
+  top: 120px;
+
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.14),
+    transparent 72%
+  );
+  animation: flareFloat 24s ease-in-out infinite reverse;
+}
+
+.flare-03 {
+  width: 340px;
+
+  height: 340px;
+
+  left: 50%;
+
+  bottom: -140px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05),
+    transparent 72%
+  );
+  animation: flareFloat 20s ease-in-out infinite;
+}
+
+@keyframes flareFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(20px, -10px, 0) scale(1.08);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}

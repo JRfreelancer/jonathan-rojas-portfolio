@@ -86,9 +86,39 @@
 
   /* ===== Content ===== */
 
---content-width:40rem;
-
+  --content-width: 40rem;
   --shadow-showcase: 0 20px 60px rgba(0, 0, 0, 0.35);
 
-  
+  /* ==========================================================
+   BACKGROUND EFFECTS
+========================================================== */
+
+  --bg-primary: #020817;
+  --bg-secondary: #061124;
+
+  --glow-cyan: rgba(34, 211, 238, 0.1);
+  --glow-blue: rgba(59, 130, 246, 0.08);
+  --glow-white: rgba(255, 255, 255, 0.04);
+
+  --hex-light: rgba(255, 255, 255, 0.08);
+  --hex-cyan: rgba(34, 211, 238, 0.18);
+  --hex-blue: rgba(59, 130, 246, 0.12);
+
+  --vignette: rgba(0, 0, 0, 0.38);
+
+  /* ==========================================================
+   BACKGROUND SYSTEM
+========================================================== */
+
+  --bg-glow-primary: rgba(34, 211, 238, 0.2);
+
+  --bg-glow-secondary: rgba(59, 130, 246, 0.14);
+
+  --bg-glow-soft: rgba(255, 255, 255, 0.08);
+
+  --bg-hex-border: rgba(34, 211, 238, 0.18);
+
+  --bg-hex-inner: rgba(255, 255, 255, 0.06);
+
+  --bg-hex-fill: rgba(3, 19, 63, 0.08);
 }
