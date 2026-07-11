@@ -17,14 +17,19 @@ main {
 }
 
 /* Secciones generales */
-section:not(.hero) {
+main > section {
   position: relative;
   padding: 6rem 0;
 }
 
-/* Contenedor Bootstrap */
+/* ==========================================================================
+   CONTENEDOR GLOBAL
+========================================================================== */
+
 .container {
-  max-width: var(--container-max-width);
+  width: min(var(--container-width), 92%);
+  max-width: var(--container-width);
+  margin-inline: auto;
 }
 
 /* Selección de texto */

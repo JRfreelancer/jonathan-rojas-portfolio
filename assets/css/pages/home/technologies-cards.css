@@ -1,0 +1,226 @@
+/* ==========================================================================
+   MÓDULO DE TECNOLOGÍAS (Estilos de Tarjetas)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. ESTRUCTURA BASE DE LA TARJETA (.technology-card)
+   ========================================================================== */
+
+/* Contenedor principal de la tarjeta de tecnología */
+.technology-card {
+  /* Posicionamiento y Aislamiento */
+  position: relative;
+  overflow: hidden;
+
+  /* Estructura y Distribución Flexbox */
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  /* Dimensiones y Relleno de Caja */
+  padding: 2rem;
+  height: 100%;
+
+  /* Estética, Bordes y Esquinas */
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.025)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Efectos Especiales Visuales */
+  backdrop-filter: blur(12px);
+
+  /* Animación y Suavizado de Cambio */
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* ==========================================================================
+   2. PSEUDOELEMENTOS (Efectos de Iluminación y Bordes)
+   ========================================================================== */
+
+/* Primer bloque del pseudoelemento ::before (Gradiente radial oculto de fondo) */
+.technology-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(34, 211, 238, 0.1),
+    transparent 65%
+  );
+  transition: opacity 0.35s ease;
+}
+
+/* Línea decorativa base inferior invisible que se expande hacia la derecha */
+.technology-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: var(--color-azul-turquesa);
+  transition: width 0.35s ease;
+}
+
+/* ==========================================================================
+   3. CONTENEDOR DEL ICONO (.technology-icon-wrapper)
+   ========================================================================== */
+
+/* Envoltura geométrica con cuadrícula para el icono interno */
+.technology-icon-wrapper {
+  /* Distribución de Rejilla */
+  display: grid;
+  place-items: center;
+
+  /* Dimensiones y Esquinas */
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+
+  /* Estética de Fondo y Sombra Interna/Externa */
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.12),
+    rgba(34, 211, 238, 0.04)
+  );
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+
+  /* Animación y Suavizado de Cambio */
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Reglas estéticas directas para la fuente tipográfica tipificada (FontAwesome) */
+.technology-card-icon i {
+  font-size: 2.2rem;
+  color: var(--color-azul-turquesa);
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+/* ==========================================================================
+   4. ESTADOS INTERACTIVOS (Hover Effects)
+   ========================================================================== */
+
+/* Efecto de elevación tridimensional sobre la tarjeta principal */
+.technology-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(34, 211, 238, 0.3);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.3),
+    0 0 22px rgba(34, 211, 238, 0.08);
+}
+
+/* Desvanece hacia visible el destello superior radial de la tarjeta */
+.technology-card:hover::before {
+  opacity: 0.75;
+}
+
+/* Despliega la barra inferior al 100% del ancho de la tarjeta */
+.technology-card:hover::after {
+  width: 100%;
+}
+
+/* Agranda el icono interno apuntando al selector compuesto  */
+.technology-card:hover .technology-card-icon i {
+  transform: scale(1.12);
+}
+
+/* Expande el contenedor del icono, intensifica su degradado y genera brillo azul */
+.technology-card:hover .technology-icon-wrapper {
+  transform: scale(1.08);
+  border-color: rgba(34, 211, 238, 0.35);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(34, 211, 238, 0.05),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+  box-shadow:
+    0 0 28px rgba(34, 211, 238, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   5. COMPONENTES DE TEXTO INTERNOS (Typography Elements)
+   ========================================================================== */
+
+/* Etiqueta pequeña superior de subcategoría técnica */
+.technology-card-category {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gris-400);
+}
+
+/* Nombre o título descriptivo de la tecnología de desarrollo */
+.technology-card-title {
+  margin-bottom: 0.35rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-secundario);
+
+  transition: color 0.35s ease;
+}
+
+.technology-card:hover .technology-card-title {
+  color: var(--color-azul-turquesa);
+}
+
+/* Cuerpo de texto informativo de capacidades */
+.technology-card-description {
+  margin-top: auto;
+  color: var(--color-gris-200);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   ESTADO FOCUS (Accesibilidad)
+   ========================================================================== */
+
+.technology-card:focus-visible {
+  outline: 2px solid var(--color-azul-turquesa);
+
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   ANIMACIÓN DE ENTRADA
+   ========================================================================== */
+/* 
+.technology-card {
+  opacity: 0;
+
+  transform: translateY(30px);
+}
+
+.technology-card.is-visible {
+  opacity: 1;
+
+  transform: translateY(0);
+} */

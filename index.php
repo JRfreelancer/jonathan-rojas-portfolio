@@ -20,6 +20,8 @@ require_once 'includes/head.php';
 
         <?php require_once 'includes/sections/hero.php'; ?>
 
+        <?php require_once 'includes/sections/technologies.php'; ?>
+
     </main>
 
     <?php require_once 'includes/footer.php'; ?>

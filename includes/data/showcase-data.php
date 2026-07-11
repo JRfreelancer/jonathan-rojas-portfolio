@@ -20,7 +20,7 @@ $showcaseCards = [
         'title' => 'Diseño Web',
         'tag' => 'Landing Pages',
         'description' => 'Sitios web profesionales, rápidos y optimizados para convertir visitantes en clientes.',
-        'button' => 'Ver servicio',
+        'button' => 'Servicio',
         'url' => 'diseno-web.php',
     ],
 
@@ -29,7 +29,7 @@ $showcaseCards = [
         'title' => 'Diseño Gráfico',
         'tag' => 'Branding',
         'description' => 'Identidad visual moderna para empresas, marcas y emprendimientos.',
-        'button' => 'Ver trabajos',
+        'button' => 'Ver más',
         'url' => 'diseno-grafico.php',
     ],
 
@@ -38,7 +38,7 @@ $showcaseCards = [
         'title' => 'SEO',
         'tag' => 'Posicionamiento',
         'description' => 'Optimización para buscadores y mayor visibilidad en Google.',
-        'button' => 'Más información',
+        'button' => 'Información',
         'url' => 'seo.php',
     ],
 
@@ -47,7 +47,7 @@ $showcaseCards = [
         'title' => 'Proyectos',
         'tag' => 'Portfolio',
         'description' => 'Conoce algunos de los proyectos desarrollados para clientes reales.',
-        'button' => 'Ver proyectos',
+        'button' => 'Proyectos',
         'url' => 'proyectos.php',
     ]
 

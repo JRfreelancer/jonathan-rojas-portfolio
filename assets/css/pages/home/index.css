@@ -11,20 +11,30 @@
    5. Responsive
    -------------------------------------------------------------------------- */
 
-/* Importación de módulos específicos de la sección de bienvenida */
+/* Hero */
 @import url("hero.css");
 @import url("hero-content.css");
 @import url("hero-slider.css");
 @import url("hero-effects.css");
 @import url("hero-responsive.css");
 
-/* --------------------------------------------------------------------------
-   Secciones secundarias del Inicio (Home Componentes)
-   -------------------------------------------------------------------------- */
-
-/* Importación de módulos para el resto de la página principal */
-@import url("services.css");
+/* Technologies */
 @import url("technologies.css");
+@import url("technologies-responsive.css");
+@import url("technologies-cards.css");
+
+/* Services */
+@import url("services.css");
+@import url("services-responsive.css");
+
+/* Projects */
 @import url("projects.css");
+@import url("projects-responsive.css");
+
+/* Testimonials */
 @import url("testimonials.css");
+@import url("testimonials-responsive.css");
+
+/* CTA */
 @import url("cta.css");
+@import url("cta-responsive.css");
