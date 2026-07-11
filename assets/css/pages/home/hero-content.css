@@ -1,0 +1,148 @@
+/* ==========================================================================
+   COMPONENTES DE TEXTO Y ACCIONES (HERO ELEMENTOS)
+   ========================================================================== */
+
+/* Etiqueta flotante de presentación superior */
+.hero-badge {
+  /* Estructura Flexible */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+
+  /* Relleno, Bordes y Esquinas */
+  padding: 0.7rem 1.3rem;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: var(--radius-pill);
+
+  /* Fondo y Filtros Esmerilados */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  /* Tipografía y Color */
+  color: var(--color-azul-turquesa);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  /* Suavizado de Cambio */
+  transition:
+    background var(--transition-normal),
+    border-color var(--transition-normal),
+    transform var(--transition-fast);
+}
+
+/* Estado Hover del Badge superior (Elevación sutil) */
+.hero-badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Icono decorativo dentro del Badge */
+.hero-badge i {
+  font-size: 0.55rem;
+  color: var(--color-azul-turquesa);
+}
+
+/* Contenedor del título principal (H1) */
+.hero-title {
+  /* Flexbox y Márgenes */
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  /* Tipografía Fluida Estricta y Ajustes de Caja */
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  color: var(--color-secundario);
+  text-wrap: balance;
+  letter-spacing: -0.04em;
+  max-width: 12ch;
+}
+
+/* Margen superior para el nombre del portafolio */
+.hero-name {
+  margin-top: 0.5rem;
+}
+
+/* Color destacado para el apellido (Efecto de iluminación sutil) */
+.hero-lastname {
+  color: var(--color-azul-turquesa);
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.2);
+}
+
+/* Contenedor de la lista de especialidades profesionales */
+.hero-specialties {
+  /* Flexbox y Ajustes de Flujo */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  /* Tipografía */
+  color: var(--color-gris-100);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Elementos individuales de la lista de especialidades */
+.hero-specialties li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Separador viñeta (•) inyectado dinámicamente excepto en el último elemento */
+.hero-specialties li:not(:last-child)::after {
+  content: "•";
+  margin-left: 0.75rem;
+  color: var(--color-azul-turquesa);
+  opacity: 0.7;
+}
+
+/* Párrafo descriptivo de la sección Hero */
+.hero-description {
+  max-width: 38rem;
+  color: var(--color-gris-200);
+  font-size: clamp(1rem, 1vw + 0.6rem, 1.15rem);
+  line-height: 1.8;
+  text-wrap: balance;
+}
+
+/* Grupo de botones contenedores de llamadas a la acción (CTA) */
+.hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-sm);
+}
+
+/* Lista contenedora de características o viñetas destacadas */
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+  padding: 0;
+  list-style: none;
+}
+
+/* Elementos individuales dentro de la lista de características */
+.hero-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secundario);
+  font-size: 0.95rem;
+}
+
+/* Iconos integrados en la lista de características */
+.hero-features i {
+  color: var(--color-azul-turquesa);
+}

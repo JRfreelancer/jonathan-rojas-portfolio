@@ -12,8 +12,10 @@ $heroHexagons = [
     [
         'variant' => 'hero-hex--soft',
         'position' => 'hero-hex-01',
+        'size' => 'hero-hex--xl',
+        'layer' => 'background',
         'duration' => '18s',
-        'delay' => '0s',
+        'delay' => '0s'
     ],
 
     [
@@ -58,11 +60,38 @@ $heroHexagons = [
         'delay' => '2s',
     ],
 
+[
+    'variant' => 'hero-hex--glow',
+    'position' => 'hero-hex-08',
+    'size' => 'hero-hex--sm',
+    'layer' => 'front',
+    'duration' => '24s',
+    'delay' => '4s'
+]
+
+];
+
+/**
+ * ==========================================================
+ * HERO GLOWS
+ * ==========================================================
+ */
+
+$heroGlows = [
+
     [
-        'variant' => 'hero-hex--glow',
-        'position' => 'hero-hex-08',
-        'duration' => '16s',
-        'delay' => '0s',
+        'class' => 'glow glow-primary',
+        'delay' => '0s'
+    ],
+
+    [
+        'class' => 'glow glow-secondary',
+        'delay' => '6s'
+    ],
+
+    [
+        'class' => 'glow glow-accent',
+        'delay' => '12s'
     ]
 
 ];

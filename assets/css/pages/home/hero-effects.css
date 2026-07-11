@@ -1,0 +1,90 @@
+/* ==========================================================================
+   HERO EFFECTS
+   --------------------------------------------------------------------------
+   Efectos visuales y animaciones decorativas del Hero.
+   Incluye glows, iluminación ambiental y animaciones de flotación.
+   ========================================================================== */
+
+/* ==========================================================================
+   GLOWS DECORATIVOS (Luces de Fondo Ambientales)
+   ========================================================================== */
+
+/* Reglas comunes de diseño para las esferas de luz difuminadas */
+.hero-glow {
+  /* Posicionamiento y Capas */
+  position: absolute;
+  z-index: 0;
+
+  /* Geometría y Esquinas */
+  border-radius: 50%;
+
+  /* Filtros de Difuminado Estético */
+  filter: blur(130px);
+  opacity: 0.7;
+}
+
+/* Esfera de luz 1: Tono Turquesa (Esquina superior derecha) */
+.hero-glow-1 {
+  /* Dimensiones */
+  width: 600px;
+  height: 600px;
+
+  /* Ubicación Espacial */
+  right: -220px;
+  top: -180px;
+
+  /* Estética y Color */
+  background: rgba(34, 211, 238, 0.12);
+}
+
+/* Esfera de luz 2: Tono Azul (Esquina inferior izquierda) */
+.hero-glow-2 {
+  /* Dimensiones */
+  width: 500px;
+  height: 500px;
+
+  /* Ubicación Espacial */
+  left: -220px;
+  bottom: -220px;
+
+  /* Estética y Color */
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* Esfera de luz 3: Destello sutil Blanco (Centro del fondo) */
+.hero-glow-3 {
+  /* Dimensiones */
+  width: 280px;
+  height: 280px;
+
+  /* Ubicación Espacial */
+  top: 42%;
+  left: 55%;
+
+  /* Estética y Color */
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ==========================================================================
+   ANIMACIONES (Keyframes & Asignación de Líneas de Tiempo)
+   ========================================================================== */
+
+/* Definición de la física de flotación y alteración de tamaño de las esferas */
+@keyframes glowFloat {
+  0%,
+  100% {
+    /* Estado Inicial y Final: Reposo */
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    /* Punto medio: Elevación sutil y ensanchamiento */
+    transform: translateY(-25px) scale(1.05);
+  }
+}
+
+/* Selector duplicado asignado a la animación (Mantenido fiel al original) */
+.hero-glow {
+  /* Ejecución infinita del fotograma con suavizado cíclico */
+  animation: glowFloat 18s ease-in-out infinite;
+}

@@ -1,0 +1,233 @@
+/* ==========================================================================
+   SHOWCASE SLIDER (Módulo del Carrusel de Proyectos)
+   --------------------------------------------------------------------------
+   Estructura general, componentes interactivos y control de animaciones 
+   secuenciales para cada tarjeta del deslizador.
+   ========================================================================== */
+
+/* Caja estructural que define la altura y distribución del Slider */
+.showcase-slider {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-sm);
+  width: 100%;
+  height: clamp(500px, 60vh, 650px);
+}
+
+/* Tarjeta individual interactiva del Slider */
+.showcase-card {
+  position: relative;
+  overflow: hidden;
+
+  /* Flex Proporcional Inicial (Contraído) */
+  flex: 0.35;
+  min-width: 55px;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  background: var(--color-gris-900);
+
+  /* Transición de Expansión Avanzada */
+  transition:
+    flex 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.45s ease;
+}
+
+/* Muestra el gradiente oscuro solo en la tarjeta seleccionada */
+.showcase-card.active .showcase-overlay {
+  opacity: 1;
+}
+
+/* Tarjeta en estado activo (Se expande proporcionalmente y empuja al resto) */
+.showcase-card.active {
+  flex: 7;
+}
+
+/* Atenúa las imágenes que pertenecen a tarjetas inactivas */
+.showcase-card:not(.active) .showcase-image {
+  filter: brightness(0.82);
+}
+
+/* Remueve la atenuación e incrementa el zoom en la tarjeta activa */
+.showcase-card.active .showcase-image {
+  filter: brightness(1);
+  transform: scale(1.05);
+}
+
+/* Desvanece hacia visible y posiciona el texto al activarse la tarjeta */
+.showcase-card.active .showcase-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contenedor multimedia de protección para el desborde de imagen */
+.showcase-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Capa de degradado oscuro inferior para legibilidad de textos */
+.showcase-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(2, 8, 23, 0.95) 10%,
+    rgba(2, 8, 23, 0.45) 55%,
+    rgba(2, 8, 23, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+/* Contenedor de información textual dentro de la tarjeta del Slider */
+.showcase-content {
+  /* Posicionamiento y Capas */
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+
+  /* Flexbox y Distribución */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  align-items: flex-start;
+  max-width: 90%;
+
+  /* Estado Oculto Inicial (Desplazado hacia abajo) */
+  opacity: 0;
+  transform: translateY(25px);
+  pointer-events: none;
+
+  /* Transición de aparición */
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+}
+
+/* Título del proyecto individual */
+.showcase-title {
+  margin: 0;
+  font-family: var(--fuente-principal);
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-secundario);
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+}
+
+/* Imagen de fondo del proyecto dentro de la tarjeta */
+.showcase-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+/* Restaura los eventos del puntero en el botón interno */
+.showcase-button {
+  pointer-events: auto;
+}
+
+/* Estado de reinicio agrupado para efectos de aparición en cascada */
+.showcase-tag,
+.showcase-title,
+.showcase-description,
+.showcase-button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+}
+
+/* Animación en cascada - Elemento 1: Etiqueta (Tag) */
+.showcase-card.active .showcase-tag {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.15s;
+}
+
+/* Elevación sutil de la tarjeta inactiva al posicionar el cursor */
+.showcase-card:hover:not(.active) {
+  transform: translateY(-6px);
+}
+
+/* Etiqueta interna de categoría del proyecto */
+.showcase-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--color-azul-turquesa);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+}
+
+/* Animación en cascada - Elemento 2 duplicado (Mantenido fiel al original) */
+.showcase-card.active .showcase-title {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.25s;
+}
+
+/* Animación en cascada - Elemento 3 duplicado (Mantenido fiel al original) */
+.showcase-card.active .showcase-description {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.35s;
+}
+
+/* Animación en cascada - Elemento 4 duplicado (Mantenido fiel al original) */
+.showcase-card.active .showcase-button {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.45s;
+}
+
+/* Párrafo descriptivo interno del proyecto */
+.showcase-description {
+  margin: 0;
+  max-width: 30ch;
+  color: var(--color-gris-200);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Botón interno de llamada a la acción del proyecto */
+.showcase-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.3rem;
+  border-radius: 999px;
+  background: var(--color-azul-turquesa);
+  color: var(--color-primario);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Estado Hover del botón interno */
+.showcase-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(34, 211, 238, 0.35);
+}

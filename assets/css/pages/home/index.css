@@ -1,10 +1,30 @@
-/* ==========================================================
-   HOME
-========================================================== */
+/* ==========================================================================
+   MÓDULO HOME (Hoja de Estilos Central)
+   ========================================================================== */
 
+/* Hero (Arquitectura de la sección principal)
+   --------------------------------------------------------------------------
+   1. Estructura
+   2. Contenido
+   3. Slider
+   4. Efectos
+   5. Responsive
+   -------------------------------------------------------------------------- */
+
+/* Importación de módulos específicos de la sección de bienvenida */
 @import url("hero.css");
+@import url("hero-content.css");
+@import url("hero-slider.css");
+@import url("hero-effects.css");
+@import url("hero-responsive.css");
+
+/* --------------------------------------------------------------------------
+   Secciones secundarias del Inicio (Home Componentes)
+   -------------------------------------------------------------------------- */
+
+/* Importación de módulos para el resto de la página principal */
 @import url("services.css");
-@import url("projects.css");
 @import url("technologies.css");
+@import url("projects.css");
 @import url("testimonials.css");
 @import url("cta.css");
