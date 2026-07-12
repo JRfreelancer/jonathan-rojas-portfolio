@@ -36,24 +36,20 @@ $description = 'Ayudo a empresas y emprendedores a crear experiencias digitales 
 
         <div class="services-cta">
 
-        <p class="services-cta-text">
+            <p class="services-cta-text">
+                ¿Tienes un proyecto en mente?
+            </p>
 
-            ¿Tienes un proyecto en mente?
+            <h3 class="services-cta-title">
+                Convirtamos tu idea en una experiencia digital profesional.
+            </h3>
 
-        </p>
+            <a href="contacto.php" class="btn btn-primary">
+                Hablemos de tu proyecto
+            </a>
 
-        <h3 class="services-cta-title">
+        </div>
 
-            Convirtamos tu idea en una experiencia digital profesional.
-
-        </h3>
-
-        <a href="contacto.php" class="btn btn-primary">
-
-            Hablemos de tu proyecto
-
-        </a>
-
-    </div>
+    </div> <!-- Cierra .container -->
 
 </section>

@@ -68,7 +68,7 @@
     border-color 0.35s ease,
     box-shadow 0.35s ease;
 
-  /* Atributos Iniciales para Animación Scroll (Bloque Duplicado 1) */
+  /* Atributos Iniciales para Animación Scroll */
   opacity: 0;
   transform: translateY(30px);
 }
@@ -188,7 +188,7 @@
     color var(--transition-base);
 }
 
-/* Icono tipográfico vectorial integrado */
+/* Icono tipográfico vectorial integrado (Etiqueta i interna) */
 .service-card-icon i {
   font-size: 1.8rem;
   color: var(--color-azul-turquesa);
@@ -203,29 +203,40 @@
 
 /* Etiqueta superior corta en formato uppercase */
 .service-card-category {
+  /* Propiedades Tipográficas */
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.12em;
+
+  /* Estética y Mayúsculas */
   text-transform: uppercase;
   color: var(--color-gris-400);
 }
 
 /* Título de la tarjeta de servicio */
 .service-card-title {
+  /* Reseteo de Margen */
   margin: 0;
+
+  /* Proporciones y Altura de Línea */
   font-size: clamp(1.6rem, 2vw, 2rem);
   font-weight: 700;
   line-height: 1.2;
+
+  /* Color y Animación */
   color: var(--color-secundario);
   transition: color 0.35s ease;
 }
 
 /* Bloque descriptivo de alcances del servicio */
 .service-card-description {
+  /* Reseteo de Margen */
   margin: 0;
-  color: var(--color-gris-200);
-  line-height: 1.8;
+
+  /* Propiedades de Texto */
   font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-gris-200);
 }
 
 /* ==========================================================================
@@ -234,9 +245,12 @@
 
 /* Contenedor general UL para las viñetas internas */
 .service-card-features {
+  /* Caja Flexible Vertical */
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+
+  /* Reseteo de Listas */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -244,17 +258,23 @@
 
 /* Líneas individuales de características especificadas */
 .service-card-features li {
+  /* Caja Flexible Alineada */
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--color-gris-200);
+
+  /* Tipografía */
   font-size: 0.95rem;
+  color: var(--color-gris-200);
 }
 
 /* Checkmarks o iconos vectoriales de la lista */
 .service-card-features li i {
+  /* Color y Tamaño */
   color: var(--color-azul-turquesa);
   font-size: 0.85rem;
+
+  /* Protección Contra Compresión Flex */
   flex-shrink: 0;
 }
 
@@ -264,14 +284,21 @@
 
 /* Botón interno o hipervínculo de redirección */
 .service-card-link {
+  /* Estructura Flexible Alineada */
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
+
+  /* Empuje de Margen y Ancho Dinámico */
   margin-top: auto;
   width: fit-content;
-  color: var(--color-azul-turquesa);
+
+  /* Propiedades de Texto y Enlace */
   font-weight: 600;
   text-decoration: none;
+  color: var(--color-azul-turquesa);
+
+  /* Animación de Cambio de Estados */
   transition:
     color 0.3s ease,
     gap 0.3s ease;
@@ -279,6 +306,7 @@
 
 /* Flecha descriptiva del enlace */
 .service-card-link i {
+  /* Animación Exclusiva de Desplazamiento */
   transition: transform 0.3s ease;
 }
 
@@ -288,8 +316,13 @@
 
 /* Efecto de elevación e inyección de sombras complejas sobre la tarjeta */
 .service-card:hover {
+  /* Variable de Entorno Interna */
   --translateY: 30px;
+
+  /* Desplazamiento Tridimensional */
   transform: translateY(var(--translateY));
+
+  /* Bordes y Sombra de Contenedor */
   border-color: rgba(34, 211, 238, 0.28);
   box-shadow:
     0 20px 45px rgba(0, 0, 0, 0.3),
@@ -298,45 +331,60 @@
 
 /* Pseudoelemento radial superior que genera iluminación al interactuar */
 .service-card::before {
+  /* Estructura e Inset Completo */
   content: "";
   position: absolute;
   inset: 0;
+
+  /* Herencia y Eventos */
   border-radius: inherit;
   pointer-events: none;
+
+  /* Estado Oculto Inicial y Fondo Radial */
   opacity: 0;
   background: radial-gradient(
     circle at top right,
     rgba(34, 211, 238, 0.16),
     transparent 70%
   );
+
+  /* Animación de Desvanecimiento */
   transition: opacity 0.35s ease;
 }
 
-/* Muestra el destello superior radial */
+/* Muestra el destello superior radial al pasar el cursor */
 .service-card:hover::before {
   opacity: 1;
 }
 
 /* Línea decorativa base inferior invisible que se expande hacia la derecha */
 .service-card::after {
+  /* Estructura y Ubicación Inicial */
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
+
+  /* Dimensiones Iniciales y Color */
   width: 0;
   height: 3px;
   background: var(--color-azul-turquesa);
+
+  /* Animación de Expansión */
   transition: width 0.35s ease;
 }
 
-/* Despliega la barra inferior al total del contenedor */
+/* Despliega la barra inferior al total del contenedor al pasar el cursor */
 .service-card:hover::after {
   width: 100%;
 }
 
 /* Expansión física, brillo azul e incremento estético del wrapper del icono */
 .service-card:hover .service-icon-wrapper {
+  /* Transformación de Escalado */
   transform: scale(1.08);
+
+  /* Bordes y Sombras Compuestas */
   border-color: rgba(34, 211, 238, 0.35);
   box-shadow:
     0 0 28px rgba(34, 211, 238, 0.12),
@@ -371,14 +419,20 @@
 .services-cta {
   /* Posicionamiento y Aislamiento */
   position: relative;
-  overflow: hidden; /* Distribución Flexible Vertical */
+  overflow: hidden;
+
+  /* Distribución Flexible Vertical */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem; /* Espaciados y Márgenes Dinámicos */
+
+  /* Espaciados y Márgenes Dinámicos */
+  gap: 1.5rem;
   margin-top: clamp(5rem, 8vw, 7rem);
-  padding: clamp(3rem, 5vw, 4rem); /* Estética, Esquinas y Bordes */
+  padding: clamp(3rem, 5vw, 4rem);
+
+  /* Estética, Esquinas y Bordes */
   border-radius: var(--radius-2xl);
   background: linear-gradient(
     180deg,
@@ -386,41 +440,130 @@
     rgba(255, 255, 255, 0.02)
   );
   border: 1px solid rgba(255, 255, 255, 0.08);
-} /* Destello trasero circular izquierdo integrado al CTA con difuminado masivo */
+}
+
+/* Destello trasero circular izquierdo integrado al CTA con difuminado masivo */
 .services-cta::before {
+  /* Contenido y Posición Absoluta */
   content: "";
   position: absolute;
+
+  /* Dimensiones y Ubicación */
   width: 340px;
   height: 340px;
   right: -120px;
   top: -120px;
+
+  /* Estética Visual, Color y Filtro */
   border-radius: 50%;
   background: rgba(34, 211, 238, 0.06);
   filter: blur(90px);
   pointer-events: none;
-} /* Destello trasero circular derecho integrado al CTA con difuminado masivo */
+}
+
+/* Destello trasero circular derecho integrado al CTA con difuminado masivo */
 .services-cta::after {
+  /* Halo superior derecho */
   content: "";
   position: absolute;
-  width: 260px;
-  height: 260px;
-  left: -120px;
-  bottom: -120px;
+
+  top: -120px;
+  right: -120px;
+
+  width: 340px;
+  height: 340px;
+
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  filter: blur(80px);
+
+  background: rgba(34, 211, 238, 0.06);
+
+  filter: blur(90px);
+
   pointer-events: none;
-} /* Texto introductorio descriptivo corto del CTA */
+}
+
+.services-cta::before,
+.services-cta::after {
+  z-index: 0;
+}
+
+.services-cta > * {
+  position: relative;
+
+  z-index: 1;
+}
+
+/* Texto introductorio descriptivo corto del CTA */
 .services-cta-text {
   margin: 0;
   color: var(--color-gris-300);
   font-size: 1rem;
-} /* Título de conversión principal inferior */
+}
+
+/* Título de conversión principal inferior */
 .services-cta-title {
+  /* Estructura y Centrado de Márgenes */
   margin: 0;
   max-width: 18ch;
   margin-inline: auto;
+
+  /* Propiedades Tipográficas Clave */
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.2;
+}
+
+/* ==========================================================================
+   HOVER CTA
+   ========================================================================== */
+
+.services-cta {
+  transition:
+    transform 0.4s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.services-cta:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(34, 211, 238, 0.22);
+
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(34, 211, 238, 0.08);
+}
+
+.services-cta::before,
+.services-cta::after {
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.services-cta:hover::before {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.services-cta:hover::after {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.services-cta-title {
+  transition: color 0.35s ease;
+}
+
+.services-cta:hover .services-cta-title {
+  color: var(--color-azul-turquesa);
+}
+
+.services-cta-text {
+  transition: color 0.35s ease;
+}
+
+.services-cta:hover .services-cta-text {
+  color: var(--color-secundario);
 }
