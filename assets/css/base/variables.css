@@ -56,6 +56,8 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+  --transition-base: 0.35s ease;
+  --transition-spring: 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 
   /* ===== Layout ===== */
 

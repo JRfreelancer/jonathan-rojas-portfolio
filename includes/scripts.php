@@ -11,5 +11,6 @@
     <script src="assets/js/showcase-slider.js" defer></script>
     <script src="assets/js/home.js" defer></script>
     <script src="assets/js/pages/home/technologies.js" defer></script>
+    <script src="assets/js/pages/home/services.js" defer></script>
 
 </body>

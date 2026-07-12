@@ -1,0 +1,426 @@
+/* ==========================================================================
+   MÓDULO DE SERVICIOS (Estilos de Tarjetas, Grid y CTA)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. SECCIÓN CONTENEDORA (.services)
+   ========================================================================== */
+.services {
+  /* Posicionamiento y Capas */
+  position: relative;
+
+  /* Relleno con Padding Dinámico */
+  padding: clamp(6rem, 8vw, 8rem) 0;
+
+  /* Color Estético de Fondo */
+  background: var(--color-primario);
+}
+
+/* ==========================================================================
+   2. REJILLA CUADRÍCULA (.services-grid)
+   ========================================================================== */
+.services-grid {
+  /* Layout de Rejilla Auto-ajustable */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* ==========================================================================
+   3. ARQUITECTURA DE LA TARJETA (.service-card)
+   ========================================================================== */
+
+/* Contenedor principal del servicio individual (Base e Inicializaciones) */
+.service-card {
+  /* Posicionamiento y Desborde */
+  position: relative;
+  overflow: hidden;
+
+  /* Dimensiones y Caja Flexible */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0;
+
+  /* Estética, Esquinas y Fondos Avanzados */
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(34, 211, 238, 0.05),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Efecto Glassmorphism */
+  backdrop-filter: blur(18px);
+
+  /* Transición de Física de Curva Avanzada */
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  /* Atributos Iniciales para Animación Scroll (Bloque Duplicado 1) */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Estado Activo por JS cuando el elemento entra al Viewport */
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cuerpo interno contenedor de los bloques textuales */
+.service-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   4. SECCIÓN MULTIMEDIA (Imágenes de la Tarjeta)
+   ========================================================================== */
+
+/* Caja contenedora para la proporción de la imagen del servicio */
+.service-card-media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+/* Reglas aplicadas a la etiqueta de imagen responsiva */
+.service-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: brightness(0.95) contrast(1.08) saturate(1.05);
+}
+
+/* Máscara de gradiente oscuro sobre la fotografía para mejorar visibilidad */
+.service-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 8, 23, 0) 10%,
+    rgba(2, 8, 23, 0.08) 35%,
+    rgba(2, 8, 23, 0.35) 55%,
+    rgba(2, 8, 23, 0.75) 80%,
+    rgba(2, 8, 23, 1) 100%
+  );
+}
+
+/* Zoom de imagen cuando el cursor pasa por encima de la tarjeta */
+.service-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   5. CONTENEDOR DEL ICONO (.service-icon-wrapper)
+   ========================================================================== */
+
+/* Envoltura geométrica con márgenes negativos para efectos flotantes */
+.service-icon-wrapper {
+  margin-top: -38px;
+  position: relative;
+  z-index: 2;
+
+  /* Distribución Grid Interna */
+  display: grid;
+  place-items: center;
+
+  /* Dimensiones y Esquinas */
+  width: 82px;
+  height: 82px;
+  border-radius: 22px;
+
+  /* Estética, Degradado y Sombras */
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.12),
+    rgba(34, 211, 238, 0.04)
+  );
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 28px rgba(0, 0, 0, 0.25);
+
+  /* Suavizado de Cambio */
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Halo luminoso trasero difuso integrado al icono */
+.service-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.12);
+  filter: blur(22px);
+  z-index: 0;
+}
+
+/* Capa de control para aislar el z-index del icono tipográfico */
+.service-card-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  color: var(--color-azul-turquesa);
+  transition:
+    transform var(--transition-base),
+    color var(--transition-base);
+}
+
+/* Icono tipográfico vectorial integrado */
+.service-card-icon i {
+  font-size: 1.8rem;
+  color: var(--color-azul-turquesa);
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+/* ==========================================================================
+   6. TIPOGRAFÍA INTERNA (Typography Elements)
+   ========================================================================== */
+
+/* Etiqueta superior corta en formato uppercase */
+.service-card-category {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gris-400);
+}
+
+/* Título de la tarjeta de servicio */
+.service-card-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-secundario);
+  transition: color 0.35s ease;
+}
+
+/* Bloque descriptivo de alcances del servicio */
+.service-card-description {
+  margin: 0;
+  color: var(--color-gris-200);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   7. LISTA DE BENEFICIOS INCLUIDOS (.service-card-features)
+   ========================================================================== */
+
+/* Contenedor general UL para las viñetas internas */
+.service-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Líneas individuales de características especificadas */
+.service-card-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-gris-200);
+  font-size: 0.95rem;
+}
+
+/* Checkmarks o iconos vectoriales de la lista */
+.service-card-features li i {
+  color: var(--color-azul-turquesa);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   8. ENLACE INTERACTIVO FINAL (.service-card-link)
+   ========================================================================== */
+
+/* Botón interno o hipervínculo de redirección */
+.service-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: auto;
+  width: fit-content;
+  color: var(--color-azul-turquesa);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+/* Flecha descriptiva del enlace */
+.service-card-link i {
+  transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   9. ESTADOS INTERACTIVOS GENERALES (Hover Effects)
+   ========================================================================== */
+
+/* Efecto de elevación e inyección de sombras complejas sobre la tarjeta */
+.service-card:hover {
+  --translateY: 30px;
+  transform: translateY(var(--translateY));
+  border-color: rgba(34, 211, 238, 0.28);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.3),
+    0 0 24px rgba(34, 211, 238, 0.08);
+}
+
+/* Pseudoelemento radial superior que genera iluminación al interactuar */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(34, 211, 238, 0.16),
+    transparent 70%
+  );
+  transition: opacity 0.35s ease;
+}
+
+/* Muestra el destello superior radial */
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Línea decorativa base inferior invisible que se expande hacia la derecha */
+.service-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: var(--color-azul-turquesa);
+  transition: width 0.35s ease;
+}
+
+/* Despliega la barra inferior al total del contenedor */
+.service-card:hover::after {
+  width: 100%;
+}
+
+/* Expansión física, brillo azul e incremento estético del wrapper del icono */
+.service-card:hover .service-icon-wrapper {
+  transform: scale(1.08);
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow:
+    0 0 28px rgba(34, 211, 238, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Escalado proporcional para el icono tipográfico interno */
+.service-card:hover .service-card-icon i {
+  transform: scale(1.12);
+}
+
+/* Altera el color del título de la tarjeta hacia el color de énfasis */
+.service-card:hover .service-card-title {
+  color: var(--color-azul-turquesa);
+}
+
+/* Incrementa la separación flex interna del enlace */
+.service-card:hover .service-card-link {
+  gap: 0.95rem;
+}
+
+/* Desplaza de manera horizontal el icono de flecha del enlace */
+.service-card:hover .service-card-link i {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   10. LLAMADA A LA ACCIÓN INTERNA (.services-cta)
+   ========================================================================== */
+
+/* Bloque centralizado inferior para conversión de usuarios */
+.services-cta {
+  /* Posicionamiento y Aislamiento */
+  position: relative;
+  overflow: hidden; /* Distribución Flexible Vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem; /* Espaciados y Márgenes Dinámicos */
+  margin-top: clamp(5rem, 8vw, 7rem);
+  padding: clamp(3rem, 5vw, 4rem); /* Estética, Esquinas y Bordes */
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+} /* Destello trasero circular izquierdo integrado al CTA con difuminado masivo */
+.services-cta::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  right: -120px;
+  top: -120px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.06);
+  filter: blur(90px);
+  pointer-events: none;
+} /* Destello trasero circular derecho integrado al CTA con difuminado masivo */
+.services-cta::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  left: -120px;
+  bottom: -120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  filter: blur(80px);
+  pointer-events: none;
+} /* Texto introductorio descriptivo corto del CTA */
+.services-cta-text {
+  margin: 0;
+  color: var(--color-gris-300);
+  font-size: 1rem;
+} /* Título de conversión principal inferior */
+.services-cta-title {
+  margin: 0;
+  max-width: 18ch;
+  margin-inline: auto;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
