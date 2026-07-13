@@ -12,5 +12,6 @@
     <script src="assets/js/home.js" defer></script>
     <script src="assets/js/pages/home/technologies.js" defer></script>
     <script src="assets/js/pages/home/services.js" defer></script>
+    <script src="assets/js/pages/home/testimonials.js"></script>
 
 </body>

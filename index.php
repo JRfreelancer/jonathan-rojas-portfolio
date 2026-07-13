@@ -23,6 +23,7 @@ require_once 'includes/head.php';
         <?php require_once 'includes/sections/technologies.php'; ?>
 
         <?php require_once 'includes/sections/services.php'; ?>
+        <?php require_once 'includes/sections/testimonials.php'; ?>
 
 
 

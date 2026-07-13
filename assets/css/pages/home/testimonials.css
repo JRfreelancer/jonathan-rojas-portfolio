@@ -1,0 +1,407 @@
+/* ==========================================================================
+   TESTIMONIOS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECCIÓN GENERAL
+   -------------------------------------------------------------------------- */
+
+.testimonials {
+  position: relative;
+  padding: clamp(6rem, 8vw, 8rem) 0;
+  background: var(--color-primario);
+}
+
+/* --------------------------------------------------------------------------
+   2. CONTENEDOR DEL SLIDER
+   -------------------------------------------------------------------------- */
+
+.testimonials-slider {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: clamp(3rem, 5vw, 4rem);
+  align-items: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   3. PAGINACIÓN
+   -------------------------------------------------------------------------- */
+
+.testimonials-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: clamp(3rem, 5vw, 4rem);
+}
+
+/* --------------------------------------------------------------------------
+   4. TARJETA DE TESTIMONIO (base)
+   Ya consolidada: incluye isolation, estructura y transición base.
+   -------------------------------------------------------------------------- */
+
+.testimonial-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 2.25rem;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(34, 211, 238, 0.06),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.02)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Contenido directo por encima de los pseudo-elementos decorativos. */
+.testimonial-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Línea inferior decorativa. */
+.testimonial-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: var(--color-azul-turquesa);
+  transition: width 0.35s ease;
+}
+
+.testimonial-card:hover::after {
+  width: 100%;
+}
+
+/* Brillo radial decorativo. */
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(34, 211, 238, 0.16),
+    transparent 60%
+  );
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
+}
+
+/* Separador interno. */
+.testimonial-divider {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   5. COMILLAS DECORATIVAS
+   Ya consolidada en una sola definición (posición, tamaño y transición).
+   -------------------------------------------------------------------------- */
+
+.testimonial-quote {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(34, 211, 238, 0.08);
+  pointer-events: none;
+  user-select: none;
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.testimonial-quote i {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   6. VALORACIÓN (estrellas)
+   Ya consolidada con su transición incluida.
+   -------------------------------------------------------------------------- */
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-rating i {
+  color: #facc15;
+  font-size: 0.85rem;
+  transition:
+    transform 0.35s ease,
+    text-shadow 0.35s ease;
+}
+
+/* --------------------------------------------------------------------------
+   7. TEXTO DEL TESTIMONIO
+   -------------------------------------------------------------------------- */
+
+.testimonial-text {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-gris-200);
+  font-style: normal;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   8. AUTOR DEL TESTIMONIO
+   -------------------------------------------------------------------------- */
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Avatar ya consolidado: incluye el borde con degradado (antes en la
+   sección "AVATAR — BORDE CON DEGRADADO"). */
+.testimonial-avatar {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(34, 211, 238, 0.25);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  padding: 3px;
+  background: linear-gradient(
+    135deg,
+    var(--color-azul-turquesa),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+.testimonial-avatar img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  transition: transform 0.45s ease;
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.testimonial-author-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  transition: color 0.35s ease;
+}
+
+.testimonial-author-position {
+  margin: 0;
+  color: var(--color-gris-300);
+  font-size: 0.95rem;
+}
+
+.testimonial-author-company {
+  color: var(--color-azul-turquesa);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   ESTADOS HOVER
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   9. HOVER DE LA TARJETA
+   -------------------------------------------------------------------------- */
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(34, 211, 238, 0.28);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.3),
+    0 0 24px rgba(34, 211, 238, 0.08);
+}
+
+.testimonial-card:hover .testimonial-avatar {
+  transform: scale(1.08);
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.15);
+}
+
+.testimonial-card:hover .testimonial-avatar img {
+  transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   10. HALO DEL AVATAR
+   -------------------------------------------------------------------------- */
+
+.testimonial-avatar::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.12);
+  filter: blur(16px);
+  opacity: 0;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  z-index: -1;
+}
+
+.testimonial-card:hover .testimonial-avatar::before {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* --------------------------------------------------------------------------
+   11. HOVER DE LAS ESTRELLAS DE VALORACIÓN
+   -------------------------------------------------------------------------- */
+
+.testimonial-card:hover .testimonial-rating i {
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   12. HOVER DEL NOMBRE DEL AUTOR
+   -------------------------------------------------------------------------- */
+
+.testimonial-card:hover .testimonial-author-name {
+  color: var(--color-azul-turquesa);
+}
+
+/* ==========================================================================
+   TESTIMONIO DESTACADO (FEATURED)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   14. TARJETA DESTACADA
+   Ya consolidada en un solo bloque.
+   -------------------------------------------------------------------------- */
+
+.testimonial-card-featured {
+  transform: translateY(-12px);
+  border-color: rgba(34, 211, 238, 0.2);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(34, 211, 238, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.025)
+    );
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28),
+    0 0 28px rgba(34, 211, 238, 0.08);
+}
+
+.testimonial-card-featured:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(34, 211, 238, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   16. TARJETA DESTACADA — estilos internos
+   -------------------------------------------------------------------------- */
+
+.testimonial-card-featured .testimonial-author-name {
+  color: var(--color-azul-turquesa);
+}
+
+.testimonial-card-featured .testimonial-rating i {
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.45);
+}
+
+.testimonial-card-featured .testimonial-avatar {
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.testimonial-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   17. HOVER DE LAS COMILLAS DECORATIVAS (versión B)
+   ⚠ DUPLICADO — ver también sección 13 (versión A, valores distintos:
+   rotate(-6deg) / color 0.18 vs. rotate(-8deg) / color 0.1)
+   -------------------------------------------------------------------------- */
+
+.testimonial-card:hover .testimonial-quote {
+  transform: translateY(-6px) rotate(-8deg);
+  color: rgba(34, 211, 238, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   19. ANIMACIÓN DE ENTRADA (redefinición final)
+   ⚠ DUPLICADO — idéntico a la sección 15
+   -------------------------------------------------------------------------- */
+
+.testimonial-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
