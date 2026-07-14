@@ -17,11 +17,24 @@
    -------------------------------------------------------------------------- */
 
 .testimonials-slider {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 2rem;
-  margin-top: clamp(3rem, 5vw, 4rem);
+  position: relative;
+
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  /* touch-action: pan-y; */
   align-items: stretch;
+  gap: 2rem;
+  cursor: grab;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  will-change: transform, opacity;
+}
+
+.testimonials-track.is-dragging {
+  cursor: grabbing;
 }
 
 /* --------------------------------------------------------------------------
@@ -46,6 +59,7 @@
   isolation: isolate;
   display: flex;
   flex-direction: column;
+  flex: 0 0 calc((100% - (2 * 2rem)) / 3);
   height: 100%;
   overflow: hidden;
   padding: 2.25rem;
@@ -156,12 +170,16 @@
   margin-bottom: 1.5rem;
 }
 
-.testimonial-rating i {
-  color: #facc15;
-  font-size: 0.85rem;
+.testimonial-rating .svg-inline--fa {
+  color: #fbbf24;
   transition:
     transform 0.35s ease,
-    text-shadow 0.35s ease;
+    filter 0.35s ease;
+}
+
+.testimonial-card:hover .testimonial-rating .svg-inline--fa {
+  transform: translateY(-2px);
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
 }
 
 /* --------------------------------------------------------------------------
@@ -174,7 +192,7 @@
   line-height: 1.9;
   color: var(--color-gris-200);
   font-style: normal;
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 /* --------------------------------------------------------------------------
@@ -185,7 +203,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
+
+  margin-top: auto;
+  padding-top: 2rem;
 }
 
 /* Avatar ya consolidado: incluye el borde con degradado (antes en la
@@ -305,7 +325,7 @@
    11. HOVER DE LAS ESTRELLAS DE VALORACIÓN
    -------------------------------------------------------------------------- */
 
-.testimonial-card:hover .testimonial-rating i {
+.testimonial-card:hover .testimonial-rating .svg-inline--fa {
   transform: translateY(-2px);
   text-shadow: 0 0 10px rgba(250, 204, 21, 0.45);
 }
@@ -361,7 +381,7 @@
   color: var(--color-azul-turquesa);
 }
 
-.testimonial-card-featured .testimonial-rating i {
+.testimonial-card-featured .testimonial-rating .svg-inline--fa {
   text-shadow: 0 0 10px rgba(250, 204, 21, 0.45);
 }
 
@@ -381,17 +401,6 @@
 }
 
 /* --------------------------------------------------------------------------
-   17. HOVER DE LAS COMILLAS DECORATIVAS (versión B)
-   ⚠ DUPLICADO — ver también sección 13 (versión A, valores distintos:
-   rotate(-6deg) / color 0.18 vs. rotate(-8deg) / color 0.1)
-   -------------------------------------------------------------------------- */
-
-.testimonial-card:hover .testimonial-quote {
-  transform: translateY(-6px) rotate(-8deg);
-  color: rgba(34, 211, 238, 0.1);
-}
-
-/* --------------------------------------------------------------------------
    19. ANIMACIÓN DE ENTRADA (redefinición final)
    ⚠ DUPLICADO — idéntico a la sección 15
    -------------------------------------------------------------------------- */
@@ -399,9 +408,90 @@
 .testimonial-card.is-visible {
   opacity: 1;
   transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .testimonial-card {
   opacity: 0;
   transform: translateY(40px);
+}
+
+.testimonial-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 52px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(12px);
+
+  color: var(--color-secundario);
+
+  transition: 0.35s ease;
+
+  z-index: 10;
+}
+
+.testimonial-arrow-prev {
+  left: -8px;
+}
+
+.testimonial-arrow-next {
+  right: -8px;
+}
+
+.testimonial-arrow:hover {
+  background: rgba(34, 211, 238, 0.15);
+
+  color: var(--color-azul-turquesa);
+
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* ==========================================================================
+   PAGINACIÓN
+   ========================================================================== */
+
+.testimonial-dot {
+  width: 12px;
+
+  height: 12px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.testimonial-dot:hover {
+  background: var(--color-azul-turquesa);
+
+  transform: scale(1.2);
+}
+
+.testimonial-dot.is-active {
+  background: var(--color-azul-turquesa);
+
+  transform: scale(1.25);
 }
