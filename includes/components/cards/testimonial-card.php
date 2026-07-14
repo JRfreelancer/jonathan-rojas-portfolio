@@ -11,12 +11,16 @@ $company  = $testimonial['company'];
 $photo    = $testimonial['photo'];
 $rating   = $testimonial['rating'];
 $text     = $testimonial['text'];
+$service  = $testimonial['service'];
 ?>
 
 <!-- =========================================================================
      TARJETA DE TESTIMONIO INDIVIDUAL (Componente Semántico Article)
      ========================================================================= -->
 <article class="testimonial-card <?= $featured ? 'testimonial-card-featured' : ''; ?>" id="testimonial-<?= htmlspecialchars($id) ?>" data-featured="<?= $featured ? 'true' : 'false'; ?>" data-testimonial-id="<?= $id ?>">
+
+
+
 
     <!-- ===================== DETALLES DECORATIVOS (Comillas) ===================== -->
     <div class="testimonial-quote">
@@ -33,6 +37,8 @@ $text     = $testimonial['text'];
             <i class="fa-solid fa-star" aria-hidden="true"></i>
         <?php endfor; ?>
     </div>
+
+
 
     <!-- ===================== CUERPO DEL TESTIMONIO (Cita Textual) ===================== -->
     <blockquote class="testimonial-text">
@@ -66,4 +72,11 @@ $text     = $testimonial['text'];
         </div>
 
     </footer>
+    <hr class="testimonial-divider" aria-hidden="true">
+    <!-- ===================== SERVICIO ===================== -->
+
+    <span class="testimonial-service"> 
+        <i class="fa-solid fa-check"></i>
+        <?= htmlspecialchars($service) ?>
+    </span>
 </article>

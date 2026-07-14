@@ -113,10 +113,12 @@
 .showcase-title {
   margin: 0;
   font-family: var(--fuente-principal);
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(1.2rem, 1.7vw, 1.75rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--color-secundario);
+  max-width: 16ch;
+  text-wrap: balance;
 
   opacity: 0;
   transform: translateY(20px);
@@ -206,7 +208,7 @@
 /* Párrafo descriptivo interno del proyecto */
 .showcase-description {
   margin: 0;
-  max-width: 30ch;
+  max-width: 34ch;
   color: var(--color-gris-200);
   font-size: 1rem;
   line-height: 1.7;

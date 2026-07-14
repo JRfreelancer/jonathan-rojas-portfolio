@@ -495,3 +495,38 @@
 
   transform: scale(1.25);
 }
+
+.testimonial-service {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.45rem 0.9rem;
+
+  margin-top: 0.9rem;
+
+  border-radius: var(--radius-pill);
+
+  background: rgba(34, 211, 238, 0.12);
+
+  border: 1px solid rgba(34, 211, 238, 0.18);
+
+  color: var(--color-azul-turquesa);
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.testimonial-card:hover .testimonial-service{
+
+    background:rgba(34,211,238,.18);
+
+    transform:translateY(-2px);
+
+}
