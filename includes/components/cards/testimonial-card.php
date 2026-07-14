@@ -1,4 +1,9 @@
 <?php
+
+if (!isset($testimonial) || !is_array($testimonial)) {
+    return;
+}
+
 // =========================================================================
 // ASIGNACIÓN Y EXTRACCIÓN DE VARIABLES DEL TESTIMONIO
 // =========================================================================
