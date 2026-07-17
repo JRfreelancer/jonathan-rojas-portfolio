@@ -24,6 +24,8 @@ require_once 'includes/head.php';
 
         <?php require_once 'includes/sections/services.php'; ?>
         <?php require_once 'includes/sections/testimonials.php'; ?>
+        <?php require_once 'includes/sections/cta.php'; ?>
+
 
 
 

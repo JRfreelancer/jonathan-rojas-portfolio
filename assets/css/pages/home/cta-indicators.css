@@ -1,0 +1,191 @@
+/* ==========================================================================
+   CTA INDICATORS (Indicadores de confianza de la sección CTA)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR PRINCIPAL (.cta-indicators)
+   -------------------------------------------------------------------------- */
+.cta-indicators {
+  /* Distribución de Rejilla Simétrica */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+
+  /* Dimensiones y Centrado Global */
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto 0;
+
+  /* Separación y Borde Estructural Superior */
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   2. CONTENEDOR INDIVIDUAL (.cta-indicator)
+   Wrapper individual de cada columna (ícono + título + descripción).
+   -------------------------------------------------------------------------- */
+.cta-indicator {
+  /* Disposición de Caja Flexible Vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. CONTENEDOR DEL ÍCONO
+   -------------------------------------------------------------------------- */
+
+.cta-indicator__icon {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 68px;
+  height: 68px;
+
+  margin-bottom: 1.5rem;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.08),
+    rgba(34, 211, 238, 0.03)
+  );
+
+  border: 1px solid rgba(34, 211, 238, 0.18);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  animation: iconGlow 7s ease-in-out infinite;
+}
+
+/* Halo difuso detrás del circulo, se activa en hover (sección 7) */
+.cta-indicator__icon::before {
+  content: "";
+
+  position: absolute;
+  inset: -10px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(rgba(34, 211, 238, 0.22), transparent 70%);
+
+  filter: blur(18px);
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
+
+  z-index: -1;
+}
+
+.cta-indicator__icon i {
+  font-size: 1.3rem;
+
+  color: var(--color-azul-turquesa);
+
+  transition: transform 0.35s ease;
+}
+
+/* --------------------------------------------------------------------------
+   4. TÍTULO INTERNO (.cta-indicator__title)
+   -------------------------------------------------------------------------- */
+.cta-indicator__title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+}
+
+/* --------------------------------------------------------------------------
+   5. DESCRIPCIÓN (.cta-indicator__description)
+   -------------------------------------------------------------------------- */
+.cta-indicator__description {
+  /* Delimitación de Ancho y Centrado */
+  max-width: 260px;
+  margin: 0 auto;
+
+  /* Atributos Tipográficos */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-gris-400);
+}
+
+/* --------------------------------------------------------------------------
+   6. ESTADOS (Hover Effects)
+   -------------------------------------------------------------------------- */
+
+/* Transformación física, cambio de bordes y fondo degradado sobre el icono */
+.cta-indicator:hover .cta-indicator__icon {
+  transform: translateY(-5px);
+
+  border-color: rgba(34, 211, 238, 0.3);
+
+  background: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.12),
+    rgba(34, 211, 238, 0.04)
+  );
+
+  box-shadow: 0 0 20px rgba(var(--cyan-rgb), 0.18);
+}
+
+/* Desvanece hacia visible el halo difuso trasero */
+.cta-indicator:hover .cta-indicator__icon::before {
+  opacity: 1;
+}
+
+/* Escalado proporcional del vector tipográfico interno */
+.cta-indicator:hover .cta-indicator__icon i {
+  transform: scale(1.12);
+}
+
+/* --------------------------------------------------------------------------
+   7. ANIMACIONES DE RENDIMIENTO (Keyframes & Brillo Pulsante)
+   ------------------------------------------------========================== */
+
+/* Línea de tiempo que gestiona las intensidades de las sombras del circulo */
+@keyframes iconGlow {
+  0% {
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.08);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.18);
+  }
+
+  100% {
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.08);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. SECUENCIACIÓN DE DELAYS (Pseudo-clases de posición nth-child)
+   Desfasa la animación de cada ícono para que no pulsen todos a la vez.
+   -------------------------------------------------------------------------- */
+
+/* Retraso de ejecución para la primera columna */
+.cta-indicator:nth-child(1) .cta-indicator__icon {
+  animation-delay: 0s;
+}
+
+/* Retraso de ejecución para la segunda columna */
+.cta-indicator:nth-child(2) .cta-indicator__icon {
+  animation-delay: 1.5s;
+}
+
+/* Retraso de ejecución para la tercera columna */
+.cta-indicator:nth-child(3) .cta-indicator__icon {
+  animation-delay: 3s;
+}
