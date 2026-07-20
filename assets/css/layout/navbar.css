@@ -1,34 +1,29 @@
 /* ==========================================================================
-   NAVBAR
-   Jonathan Rojas - Portafolio Profesional
+   NAVBAR (Jonathan Rojas - Portafolio Profesional)
    ========================================================================== */
 
 /* ==========================================================================
-   CONTENEDOR
+   1. CONTENEDOR ESTRUCTURAL Y LAYOUT (.main-navigation)
    ========================================================================== */
-
 .main-navigation {
+  /* Dimensiones de Caja y Centrado */
   max-width: var(--container-width);
-
   height: var(--navbar-height);
-
   margin-inline: auto;
+  padding-inline: var(--space-md);
 
-  padding-inline: 1.5rem;
-
+  /* Sistema de Cuadrícula (Grid) */
   display: grid;
-
   grid-template-columns: auto 1fr auto;
-
   align-items: center;
-
-  gap: 2rem;
+  gap: var(--space-lg);
 }
 
 /* ==========================================================================
-   LOGO
+   2. SECCIÓN DEL LOGOTIPO (.logo-link)
    ========================================================================== */
 
+/* Enlace principal que envuelve la imagen y el texto de la marca */
 .logo-link {
   display: flex;
   align-items: center;
@@ -36,25 +31,24 @@
   text-decoration: none;
 }
 
+/* Imagen o isotipo del logotipo */
 .logo-link img {
   width: 48px;
-
   height: 48px;
-
   object-fit: contain;
-
   transition:
     transform 0.45s ease,
     filter 0.45s ease;
 }
 
+/* Efecto Hover sobre la imagen: Rotación, escalado e iluminación exterior */
 .logo-link:hover img {
   transform: translateY(-2px) rotate(-6deg) scale(1.1);
-
   filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.55))
     drop-shadow(0 0 24px rgba(34, 211, 238, 0.4));
 }
 
+/* Texto nominativo del logotipo */
 .logo-text {
   position: relative;
   font-family: var(--fuente-principal);
@@ -64,181 +58,154 @@
   transition: color 0.35s ease;
 }
 
+/* Línea decorativa inferior invisible en reposo */
 .logo-text::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: -4px;
-
   width: 0;
   height: 2px;
-
   background: var(--color-primary);
-
   transition: width 0.35s ease;
 }
 
+/* Cambio de color del texto en hover */
 .logo-link:hover .logo-text {
   color: var(--color-primary);
 }
 
+/* Despliega la línea inferior de la marca al 100% de su ancho */
 .logo-link:hover .logo-text::after {
   width: 100%;
 }
 
 /* ==========================================================================
-   MENÚ
+   3. MENÚ DE NAVEGACIÓN ESCRITORIO (.desktop-nav)
    ========================================================================== */
 
+/* Contenedor flexible del menú de escritorio */
 .desktop-nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Lista desordenada contenedora de los items */
 .main-nav-list {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 2.5rem;
-
   margin: 0;
-
   padding: 0;
-
   list-style: none;
 }
 
+/* Enlaces individuales de navegación interna */
 .main-nav-item a {
   position: relative;
   display: inline-flex;
   align-items: center;
-
   padding: 1.4rem 0;
-
-  color: var(--color-blanco);
+  color: var(--color-secundario);
   text-decoration: none;
-
   font-family: var(--fuente-secundaria);
   font-size: 1rem;
   font-weight: 600;
-
   transition: color 0.3s ease;
 }
 
+/* Subrayado con degradado y brillo de neón oculto en reposo */
 .main-nav-item a::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
   bottom: 8px;
-
   width: 0;
   height: 3px;
-
   border-radius: 999px;
-
   background: linear-gradient(90deg, #22d3ee, #67e8f9, #22d3ee);
-
   transform: translateX(-50%);
-
   opacity: 0;
-
   box-shadow:
     0 0 8px rgba(34, 211, 238, 0.45),
     0 0 18px rgba(34, 211, 238, 0.3);
-
   transition:
     width 0.35s ease,
     opacity 0.35s ease;
 }
 
+/* Estado activo o hover: Aplica un text-shadow suave de énfasis */
 .main-nav-item a:hover,
 .main-nav-item a.active {
   color: var(--color-primary);
-
   text-shadow: 0 0 8px rgba(34, 211, 238, 0.25);
 }
 
+/* Despliega la barra iluminada inferior en hover o estado activo */
 .main-nav-item a:hover::after,
 .main-nav-item a.active::after {
   width: 100%;
   opacity: 1;
 }
+
 /* ==========================================================================
-   BOTONES DE ACCIÓN
+   4. BLOQUE DE BOTONES DE ACCIÓN (.nav-buttons)
    ========================================================================== */
 
+/* Grupo flexible alineado al extremo derecho de la cuadrícula */
 .nav-buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 
+/* Botón de acceso / llamada a la acción primordial */
 .btn-login {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 0.6rem;
-
   padding: 0.8rem 1.4rem;
-
   border-radius: var(--radius-pill);
-
   background: var(--color-primary);
-
   color: var(--color-gris-900);
-
   font-family: var(--fuente-secundaria);
-
   font-weight: 700;
-
   text-decoration: none;
-
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     background 0.3s ease;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Estado Hover del botón (Elevación tridimensional y sombra difusa cian) */
 .btn-login:hover {
   transform: translateY(-3px);
-
   box-shadow:
     0 10px 25px rgba(34, 211, 238, 0.3),
     0 0 18px rgba(34, 211, 238, 0.2);
 }
 
+/* Tamaño de fuente del icono tipográfico interno */
 .btn-login i {
   font-size: 0.95rem;
 }
 
+/* Estado de presión (Clic activo) que devuelve el botón a su nivel base */
 .btn-login:active {
   transform: translateY(0);
-
   box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
 }
 
 /* ==========================================================================
-   RESPONSIVE
+   5. CONSULTAS DE MEDIOS (Media Queries - Responsive Design)
    ========================================================================== */
-
 @media (max-width: 991px) {
-  .main-navigation {
-    grid-template-columns: auto auto;
-  }
-
+  /* Oculta los elementos que pertenecen estrictamente a la visual de escritorio */
   .btn-login {
     display: none;
   }
@@ -247,11 +214,10 @@
     display: none;
   }
 
+  /* Reajusta las columnas, rellenos e inyecta alineaciones móviles */
   .main-navigation {
     grid-template-columns: 1fr auto;
-
     align-items: center;
-
     padding-inline: 1rem;
   }
 }

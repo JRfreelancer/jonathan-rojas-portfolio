@@ -29,22 +29,22 @@
   z-index: 1;
 
   /* Dimensiones de Caja y Centrado */
-  width: min(var(--container-width), 92%);
+  width: min(var(--container-width), 100%);
   margin-inline: auto;
 
   /* Sistema de Cuadrícula (Grid de Dos Columnas) */
   display: grid;
   grid-template-columns:
-    minmax(580px, 1.2fr)
-    minmax(520px, 0.8fr);
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
 
-  gap: clamp(2rem, 4vw, 5rem);
+  gap: clamp(1.5rem, 2vw, 2.5rem);
   align-items: center;
 
   /* Espaciados Internos (Padding Dinámico) */
   padding-top: var(--space-lg);
   padding-bottom: var(--space-2xl);
-  padding-inline: clamp(2rem, 4vw, 5rem);
+  padding-inline: var(--space-md);
 }
 
 /* Columna de contenidos de texto (Izquierda en escritorio) */
@@ -58,7 +58,7 @@
 
   /* Límites de Caja */
   width: 100%;
-  max-width: 52rem;
+  max-width: 46rem;
 }
 
 /* Columna contenedora del Slider (Derecha en escritorio) */
@@ -72,6 +72,10 @@
   max-width: none;
 
   /* Alineación dentro de la Grid */
-  justify-self: stretch;
+  justify-self: end;
+  max-width: 600px;
+  width: 100%;
   align-self: center;
+
+  transform: translateX(-50px);
 }

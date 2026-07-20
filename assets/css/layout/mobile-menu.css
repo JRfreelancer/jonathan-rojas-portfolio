@@ -1,210 +1,186 @@
 /* ==========================================================================
-   PANEL PRINCIPAL
+   MOBILE MENU (Panel de Navegación Lateral Responsive)
    ========================================================================== */
 
+/* ==========================================================================
+   1. PANEL PRINCIPAL Y ESTADOS (.mobile-menu)
+   ========================================================================== */
 .mobile-menu {
+  /* Posicionamiento y Dimensiones */
   position: fixed;
   top: 0;
   right: 0;
-
+  --z-tooltip: 1100;
   width: min(90vw, 380px);
   height: 100dvh;
 
+  /* Estructura Flexible */
   display: flex;
   flex-direction: column;
 
+  /* Estética, Desbordes y Sombras */
+  overflow-x: hidden;
+  overflow-y: auto;
   background: rgba(2, 8, 23, 0.96);
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.35);
 
+  /* Efecto Glassmorphism */
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
 
-  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.35);
-
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  z-index: 1100;
-
+  /* Estado Inicial Oculto */
   transform: translateX(100%);
   visibility: hidden;
   pointer-events: none;
 
+  /* Transición de Desplazamiento Fluido */
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0.35s;
 }
 
-/* ==========================================================================
-   MENÚ ABIERTO
-   ========================================================================== */
-
+/* MENÚ ABIERTO: Inyectado por JavaScript para desplegar el panel */
 .mobile-menu.is-open {
   transform: translateX(0);
-
   visibility: visible;
-
   pointer-events: auto;
 }
 
 /* ==========================================================================
-   CONTENIDO
+   2. DISTRIBUCIÓN DEL CONTENIDO (.mobile-menu-content)
    ========================================================================== */
-
 .mobile-menu-content {
   display: flex;
-
   flex-direction: column;
-
   min-height: 100%;
-
-  padding: 1.5rem;
+  padding: var(--space-md);
 }
 
-/* ==========================================================================
-   CABECERA
-   ========================================================================== */
-
+/* Cabecera del menú lateral (Título de marca + botón de cerrar) */
 .mobile-menu-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-bottom: 1rem;
-  margin-bottom: 2rem;
-
+  margin-bottom: var(--space-lg);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ==========================================================================
-   NAVEGACIÓN
-   ========================================================================== */
-
-.mobile-nav {
-  display: flex;
-
-  flex-direction: column;
-
-  flex: 1;
-
-  gap: 0.5rem;
-}
-
-/* ==========================================================================
-   LOGIN
-   ========================================================================== */
-
-.mobile-login {
-  margin-top: 2rem;
-
-  padding-top: 1.5rem;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* ==========================================================================
-   ENLACES
-   ========================================================================== */
-
-.mobile-nav a {
-  display: flex;
-  align-items: center;
-
-  width: 100%;
-
-  padding: 1rem 1.25rem;
-
-  border-radius: var(--radius-md);
-
-  color: var(--color-azul-turquesa);
-
-  text-decoration: none;
-
-  font-family: var(--fuente-secundaria);
-  font-size: 1rem;
-  font-weight: 600;
-
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.mobile-nav a:hover,
-.mobile-nav a:focus-visible {
-  background: rgba(34, 211, 238, 0.1);
-
-  color: var(--color-primary);
-
-  transform: translateX(0.35rem);
-
-  outline: none;
-}
-
-.mobile-nav a.active {
-  background: rgba(34, 211, 238, 0.15);
-
-  color: var(--color-primary);
-
-  font-weight: 700;
-}
-
-.mobile-nav a {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
+/* Logotipo o título textual dentro de la cabecera móvil */
 .mobile-menu-title {
   margin: 0;
-
-  color: var(--color-primary);
-
+  line-height: 1;
   font-family: var(--fuente-secundaria);
   font-size: 1.35rem;
   font-weight: 700;
-
   letter-spacing: 0.04em;
-  line-height: 1;
+  color: var(--color-primary);
 }
 
 /* ==========================================================================
-   BOTÓN CERRAR
+   3. BOTÓN INTERNO: CERRAR MENÚ (.btn-cerrar-menu)
    ========================================================================== */
-
 .btn-cerrar-menu {
+  /* Caja y Dimensiones */
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 44px;
   height: 44px;
-
   flex-shrink: 0;
 
+  /* Reseteo de Bordes y Esquinas */
   border: none;
   border-radius: 50%;
-
   background: transparent;
 
+  /* Puntero y Estética */
   color: var(--color-primary);
-
   cursor: pointer;
 
+  /* Transición de Estados */
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
     transform 0.3s ease;
 }
 
+/* Escala del vector de FontAwesome interno */
 .btn-cerrar-menu i {
   font-size: 1.35rem;
 }
 
+/* Estado Hover: Aplica un fondo circular y una rotación de 90 grados */
 .btn-cerrar-menu:hover {
   background: rgba(34, 211, 238, 0.12);
-
   transform: rotate(90deg);
 }
 
+/* Foco accesible por teclado */
 .btn-cerrar-menu:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+/* ==========================================================================
+   4. ENLACES DE LA LISTA (.mobile-nav)
+   ========================================================================== */
+
+/* Bloque contenedor flexible vertical */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-xs);
+}
+
+/* Enlaces individuales del menú móvil (Unificados en un único bloque de estilo) */
+.mobile-nav a {
+  /* Estructura y Caja */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+
+  /* Separador inferior sutil */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  /* Propiedades de Texto */
+  text-decoration: none;
+  font-family: var(--fuente-secundaria);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-azul-turquesa);
+
+  /* Transición de Efectos */
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Estado Hover y Foco accesible por teclado: Desplaza el enlace a la derecha e ilumina */
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible {
+  outline: none;
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--color-primary);
+  transform: translateX(0.35rem);
+}
+
+/* Clase inyectada por PHP en la página activa para resaltar su peso visual */
+.mobile-nav a.active {
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   5. MÓDULO INFERIOR DE LOGIN (.mobile-login)
+   ========================================================================== */
+.mobile-login {
+  margin-top: var(--space-lg);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }

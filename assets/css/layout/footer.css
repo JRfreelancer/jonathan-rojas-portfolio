@@ -1,7 +1,7 @@
 /* ==========================================================================
-   FOOTER
-   ==========================================================================
-   1. Variables locales
+   FOOTER (Pie de Página Global del Portafolio)
+   --------------------------------------------------------------------------
+   1. Variables locales (No declaradas en el original)
    2. Contenedor principal
    3. Franja decorativa superior
    4. Marca personal
@@ -13,28 +13,34 @@
    10. Footer inferior
    11. Botón volver arriba
    12. Responsive
-========================================================================== */
+   ========================================================================== */
 
 /* ==========================================================================
-   1. CONTENEDOR PRINCIPAL
-========================================================================== */
-
+   1. CONTENEDOR PRINCIPAL (.footer)
+   ========================================================================== */
 .footer {
-  background-color: #0f172a;
-  color: #d1d5db;
+  /* Posicionamiento y Desborde */
   position: relative;
   overflow: hidden;
+
+  /* Estética de Fondo y Texto */
+  background-color: #0f172a;
+  color: #d1d5db;
+
+  /* Animación de entrada inicial con Fade */
   opacity: 0;
-
   transform: translateY(30px);
-
   animation: footerFade 0.8s ease forwards;
 }
 
-/* ==========================================================================
-   2. FRANJA DECORATIVA SUPERIOR
-========================================================================== */
+/* Selector semántico nativo para la grilla o fila del pie de página */
+.footer nav {
+  display: block;
+}
 
+/* ==========================================================================
+   2. FRANJA DECORATIVA SUPERIOR (.footer-top-line)
+   ========================================================================== */
 .footer-top-line {
   width: 100%;
   height: 4px;
@@ -42,362 +48,290 @@
 }
 
 /* ==========================================================================
-   3. MARCA PERSONAL
-========================================================================== */
+   3. MARCA PERSONAL Y LOGOTIPO (.footer-logo)
+   ========================================================================== */
 
-.footer-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
+/* Bloque estructural maestro del logo del pie de página  */
+.footer-logo{
+    position:relative;
+    display:inline-block;
+    font-size:1.8rem;
+    font-weight:700;
+    color:var(--color-secundario);
+    margin-bottom:.5rem;
 }
 
-.footer-logo {
-  position: relative;
-
-  display: inline-block;
-}
-
+/* Línea decorativa cian inferior e iluminada mediante sombra de neón */
 .footer-logo::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
-
   bottom: -8px;
-
   transform: translateX(-50%);
-
   width: 60px;
-
   height: 3px;
-
   border-radius: 50px;
-
   background: #00c2cb;
-
   box-shadow:
     0 0 8px rgba(0, 194, 203, 0.6),
     0 0 18px rgba(0, 194, 203, 0.3);
 }
 
+/* Texto indicador de la especialidad profesional */
 .footer-profession {
   color: #00c2cb;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
+/* Bloque para el párrafo o extracto descriptivo corto */
 .footer-description {
+  max-width: 420px;
   line-height: 1.8;
   color: #b8c1cc;
-  max-width: 420px;
 }
 
 /* ==========================================================================
-   4. TÍTULOS
-========================================================================== */
-
+   4. TÍTULOS DE LAS COLUMNAS (.footer-title)
+   ========================================================================== */
 .footer-title {
-  color: #ffffff;
+  position: relative;
   font-size: 1.1rem;
   font-weight: 600;
+  color: #ffffff;
   margin-bottom: 1.5rem;
-  position: relative;
 }
 
+/* Pequeño indicador lineal inferior cian debajo del título */
 .footer-title::after {
   content: "";
-
   display: block;
-
   width: 40px;
-
   height: 2px;
-
   margin-top: 8px;
-
   background: #00c2cb;
 }
 
 /* ==========================================================================
-   5. MENÚ
-========================================================================== */
+   5. NAVEGACIÓN Y MENÚS (.footer-menu)
+   ========================================================================== */
+
+/* Reseteo general de la lista desordenada del menú */
 .footer-menu {
   margin: 0;
-
   padding: 0;
-
   list-style: none;
 }
 
+/* Separación vertical entre elementos de la lista */
 .footer-menu li {
   margin-bottom: 1.1rem;
 }
 
-.footer-menu a {
-  color: #cbd5e1;
-
-  text-decoration: none;
-
-  transition: 0.3s ease;
-}
-
+/* Enlaces del menú del pie de página  */
 .footer-menu a {
   position: relative;
-
   display: inline-block;
-
   color: #cbd5e1;
-
   text-decoration: none;
-
   transition: color 0.3s ease;
 }
 
+/* Subrayado interactivo oculto que se despliega desde el centro */
 .footer-menu a::after {
   content: "";
-
   position: absolute;
-
   left: 0;
-
   bottom: -4px;
-
   width: 100%;
-
   height: 2px;
-
   background: #00c2cb;
-
   transform: scaleX(0);
-
   transform-origin: left;
-
   transition: transform 0.3s ease;
 }
 
+/* Estado Hover: Transiciona el color de la tipografía */
 .footer-menu a:hover {
   color: #00c2cb;
 }
 
+/* Despliega de forma horizontal el subrayado animado en hover o foco */
 .footer-menu a:hover::after,
 .footer-menu a:focus-visible::after {
   transform: scaleX(1);
 }
 
 /* ==========================================================================
-   6. CONTACTO
-========================================================================== */
+   6. BLOQUE DE CONTACTO (.footer-contact)
+   ========================================================================== */
 
+/* Reseteo tipográfico para la etiqueta semántica address */
 .footer-contact {
   font-style: normal;
 }
 
+/* Disposición elástica en línea para cada bloque de dato */
 .footer-contact p {
-  margin-bottom: 1rem;
-
   display: flex;
-
   align-items: center;
-
   gap: 12px;
+  margin-bottom: 1rem;
 }
 
+/* Dimensionamiento y color cian fijo para los iconos de FontAwesome */
 .footer-contact i {
   color: #00c2cb;
-
   width: 20px;
 }
 
+/* Hereda el flujo de color para enlaces internos como correos o teléfonos */
 .footer-contact a {
   color: inherit;
-
   text-decoration: none;
 }
 
+/* Altera el color al pasar el ratón encima del enlace de contacto */
 .footer-contact a:hover {
   color: #00c2cb;
 }
 
 /* ==========================================================================
-   7. REDES SOCIALES
-========================================================================== */
+   7. ICONOS DE REDES SOCIALES (.footer-social)
+   ========================================================================== */
 
+/* Contenedor flexible con salto de línea automático */
 .footer-social {
   display: flex;
-
   gap: 15px;
-
   flex-wrap: wrap;
 }
 
+/* Enlaces circulares individuales para las redes profesionales */
 .footer-social a {
-  width: 46px;
-
-  height: 46px;
-
-  border-radius: 50%;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
   text-decoration: none;
-
   background: rgba(255, 255, 255, 0.05);
-
   color: #ffffff;
-
   transition: all 0.35s ease;
 }
 
+/* Hover: Aplica elevación, escalado, sombra expansiva cian e invierte colores */
 .footer-social a:hover {
   background: #00c2cb;
-
   color: #0f172a;
-
   transform: translateY(-5px) scale(1.08);
-
   box-shadow: 0 10px 25px rgba(0, 194, 203, 0.35);
 }
 
 /* ==========================================================================
-   8. LÍNEA DIVISORIA
-========================================================================== */
-
+   8. LÍNEA DIVISORIA (.footer-divider)
+   ========================================================================== */
 .footer-divider {
   border-color: rgba(255, 255, 255, 0.08);
-
   margin: 3rem 0 2rem;
 }
 
 /* ==========================================================================
-   9. FOOTER INFERIOR
-========================================================================== */
-
+   9. FOOTER INFERIOR (.footer-copy)
+   ========================================================================== */
 .footer-copy {
   color: #94a3b8;
-
   font-size: 0.95rem;
 }
 
 /* ==========================================================================
-   10. BOTÓN VOLVER ARRIBA
-========================================================================== */
+   10. BOTÓN VOLVER ARRIBA (.btn-top)
+   ========================================================================== */
 
+/* Estilos de maquetación base del botón flotante de retorno (Bloque 1 original) */
 .btn-top {
-  width: 48px;
-
-  height: 48px;
-
-  border: none;
-
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  background: #00c2cb;
-
-  color: white;
-
-  transition: all 0.3s ease;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-}
-
-.btn-top:hover {
-  transform: translateY(-5px);
-
-  background: #13d8e0;
-
-  box-shadow: 0 12px 30px rgba(0, 194, 203, 0.45);
-}
-
-/* ==========================================================================
-   11. FOCUS PARA ACCESIBILIDAD
-========================================================================== */
-
-.footer a:focus-visible,
-.btn-top:focus-visible {
-  outline: 2px solid #00c2cb;
-
-  outline-offset: 4px;
-}
-
-/* ==========================================================================
-   12. RESPONSIVE
-========================================================================== */
-
-@media (max-width: 991px) {
-  .footer {
-    text-align: center;
-  }
-
-  .footer-contact p {
-    justify-content: center;
-  }
-
-  .footer-social {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .footer-logo {
-    font-size: 1.5rem;
-  }
-
-  .footer-title {
-    margin-top: 2rem;
-  }
-}
-
-@keyframes footerFade {
-  from {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #00c2cb;
+  color: white;
+  transition: all 0.3s ease;
     opacity: 0;
-
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-}
-
-/* ==========================================================================
-   VISIBILIDAD DEL BOTÓN
-========================================================================== */
-
-.btn-top {
-  opacity: 0;
-
   visibility: hidden;
-
   pointer-events: none;
-
   transition:
     opacity 0.35s ease,
     transform 0.35s ease,
     visibility 0.35s ease;
 }
 
+/* Estado Hover: Eleva el botón de retorno y genera un halo cian */
+.btn-top:hover {
+  transform: translateY(-5px);
+  background: #13d8e0;
+  box-shadow: 0 12px 30px rgba(0, 194, 203, 0.45);
+}
+
+/* Clase de visibilidad inyectada por JS cuando el usuario hace scroll hacia abajo */
 .btn-top.show {
   opacity: 1;
-
   visibility: visible;
-
   pointer-events: auto;
 }
 
-.footer nav {
-  display: block;
+/* ==========================================================================
+   11. ACCESIBILIDAD Y FOCO (:focus-visible)
+   ========================================================================== */
+/* Garantiza visibilidad clara para la navegación secuencial con teclado */
+.footer a:focus-visible,
+.btn-top:focus-visible {
+  outline: 2px solid #00c2cb;
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   12. CONSULTAS DE MEDIOS (Media Queries - Responsive Design)
+   ========================================================================== */
+
+/* Adaptación completa para tablets y pantallas medianas */
+@media (max-width: 991px) {
+  .footer {
+    text-align: center;
+  }
+  .footer-contact p {
+    justify-content: center;
+  }
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* Adaptación completa para smartphones en vertical */
+@media (max-width: 576px) {
+  .footer-logo {
+    font-size: 1.5rem;
+  }
+  .footer-title {
+    margin-top: 2rem;
+  }
+}
+
+/* ==========================================================================
+   13. ANIMACIONES Y LÍNEAS DE TIEMPO (Keyframes)
+   ========================================================================== */
+@keyframes footerFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

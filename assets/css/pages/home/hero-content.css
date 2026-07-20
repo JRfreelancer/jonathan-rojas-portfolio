@@ -25,9 +25,9 @@
   font-weight: 600;
 
   /* Suavizado de Cambio */
-  transition:
-    background var(--transition-normal),
-    border-color var(--transition-normal),
+  transition: 
+    background var(--transition-normal), 
+    border-color var(--transition-normal), 
     transform var(--transition-fast);
 }
 
@@ -98,7 +98,7 @@
   padding: 0;
 }
 
-/* Separador viñeta (•) inyectado dinámicamente excepto en el último elemento */
+/* Separador viñeta (•) inyectado dinámetamente excepto en el último elemento */
 .hero-specialties li:not(:last-child)::after {
   content: "•";
   margin-left: 0.75rem;

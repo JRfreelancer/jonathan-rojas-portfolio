@@ -1,9 +1,7 @@
 /* ==========================================================================
    CTA
-   Ajustes específicos de la sección
+   --------------------------------------------------------------------------
+   Archivo reservado para un componente CTA reutilizable.
+   Actualmente las llamadas a la acción permanecen encapsuladas en los módulos
+   donde se utilizan para mantener una arquitectura desacoplada.
    ========================================================================== */
-
-.cta {
-    padding-top: 3rem;
-    padding-bottom: 6rem;
-}

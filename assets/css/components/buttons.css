@@ -1,20 +1,73 @@
+/* ==========================================================================
+   BOTÓN DELINEADO (.btn-outline)
+   --------------------------------------------------------------------------
+   Gestiona la apariencia, efectos translúcidos y estados interactivos de los
+   botones secundarios con borde iluminado.
+   ========================================================================== */
+
 .btn-outline {
+  /* Estética de Fondo y Bordes */
   background: transparent;
-
-  color: var(--color-secundario);
-
   border: 2px solid rgba(34, 211, 238, 0.45);
 
+  /* Color de Texto */
+  color: var(--color-secundario);
+
+  /* Efectos Especiales Visuales y Sombras */
   backdrop-filter: blur(8px);
   box-shadow: 0 15px 40px rgba(34, 211, 238, 0.18);
 }
 
+/* --------------------------------------------------------------------------
+   Estado Hover (Puntero encima del botón)
+   Intensifica el color del borde, aplica un fondo sutil translúcido 
+   y genera una elevación física en el eje vertical.
+   -------------------------------------------------------------------------- */
 .btn-outline:hover {
+  /* Cambios de Fondo y Bordes */
   background: rgba(34, 211, 238, 0.12);
-
   border-color: var(--color-azul-turquesa);
 
+  /* Mantenimiento de Color de Texto */
   color: var(--color-secundario);
 
+  /* Transformación Tridimensional */
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   BOTÓN DELINEADO (.btn-outline)
+   --------------------------------------------------------------------------
+   Gestiona la apariencia, efectos translúcidos y estados interactivos de los
+   botones secundarios con borde iluminado.
+   ========================================================================== */
+
+.btn-outline {
+  /* Estética de Fondo y Bordes */
+  background: transparent;
+  border: 2px solid rgba(34, 211, 238, 0.45);
+
+  /* Color de Texto */
+  color: var(--color-secundario);
+
+  /* Efectos Especiales Visuales y Sombras */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 15px 40px rgba(34, 211, 238, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   Estado Hover (Puntero encima del botón)
+   Intensifica el color del borde, aplica un fondo sutil translúcido 
+   y genera una elevación física en el eje vertical.
+   -------------------------------------------------------------------------- */
+.btn-outline:hover {
+  /* Cambios de Fondo y Bordes */
+  background: rgba(34, 211, 238, 0.12);
+  border-color: var(--color-azul-turquesa);
+
+  /* Mantenimiento de Color de Texto */
+  color: var(--color-secundario);
+
+  /* Transformación Tridimensional */
   transform: translateY(-2px);
 }

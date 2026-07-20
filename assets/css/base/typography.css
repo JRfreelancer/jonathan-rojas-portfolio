@@ -1,41 +1,63 @@
 /* ==========================================================================
-   TIPOGRAFÍA
-========================================================================== */
+   TIPOGRAFÍA Y JERARQUÍA VISUAL
+   --------------------------------------------------------------------------
+   Establece las proporciones tipográficas, las familias de fuentes de las 
+   variables globales y el ritmo de los textos en todo el portafolio.
+   ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. ENCABEZADOS (Headings)
+   -------------------------------------------------------------------------- */
+/* Reglas tipográficas comunes heredadas por todos los encabezados del sitio */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: var(--fuente-principal);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-secundario);
+  color: var(--color-secundario);
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Título principal con escala fluida adaptativa (Hero) */
 h1 {
-    font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
 }
 
+/* Títulos principales de sección */
 h2 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
 }
 
+/* Subtítulos internos de tarjetas o componentes */
 h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+/* --------------------------------------------------------------------------
+   2. CUERPO DE TEXTO Y ELEMENTOS EN LÍNEA
+   -------------------------------------------------------------------------- */
+/* Párrafos estándar de lectura informativa */
 p {
-    font-size: 1rem;
-    color: var(--color-gris-claro);
-    margin-bottom: 1rem;
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+  color: var(--color-gris-400);
 }
 
+/* Texto de énfasis fuerte (Negrita estandarizada) */
 strong {
-    font-weight: 700;
+  font-weight: 700;
 }
 
+/* Textos secundarios cortos o etiquetas de menor relevancia */
 small {
-    font-size: .875rem;
+  font-size: 0.875rem;
+}
+
+body {
+  font-family: var(--fuente-secundaria);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
 }

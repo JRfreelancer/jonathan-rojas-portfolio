@@ -1,19 +1,25 @@
 /* ==========================================================================
-   HEADER
+   HEADER (Cabecera Fija Global)
+   --------------------------------------------------------------------------
+   Gestiona el posicionamiento de la barra superior flotante en el tope de la
+   pantalla y configura las transiciones para sus cambios de estado.
    ========================================================================== */
 
 .site-header {
+  /* Posicionamiento y Capas */
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
 
+  /* Dimensiones de Caja */
   width: 100%;
   height: var(--navbar-height);
 
-  z-index: 1000;
-
+  /* Estética Inicial */
   background: transparent;
 
+  /* Animaciones y Suavizado de Cambio */
   transition:
     background-color 0.35s ease,
     backdrop-filter 0.35s ease,
@@ -21,17 +27,21 @@
     box-shadow 0.35s ease;
 }
 
-/* ==========================================================================
-   HEADER AL HACER SCROLL
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   HEADER AL HACER SCROLL (Estado Alternativo Activo)
+   Se activa mediante JavaScript cuando el usuario desliza la página hacia abajo,
+   aplicando un fondo translúcido esmerilado, borde sutil y sombra.
+   -------------------------------------------------------------------------- */
 
 .site-header.scrolled {
+  /* Estética de Fondo y Bordes */
   background: rgba(2, 8, 23, 0.82);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
   border-bottom: 1px solid rgba(34, 211, 238, 0.12);
 
+  /* Sombra de Contenedor */
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+
+  /* Efecto Esmerilado (Glassmorphism) */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }

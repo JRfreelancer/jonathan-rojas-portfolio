@@ -1,28 +1,36 @@
 /* ==========================================================================
-   OVERLAY
+   OVERLAY (Capa de Atenuación de Fondo)
+   --------------------------------------------------------------------------
+   Gestiona la capa oscura y translúcida que cubre la interfaz web para aislar
+   y enfocar la atención en el menú móvil lateral cuando este es desplegado.
    ========================================================================== */
 
 .overlay {
+  /* Posicionamiento y Cobertura Total */
   position: fixed;
   inset: 0;
+  z-index: 1090; /* Se sitúa estratégicamente debajo del menú móvil (1100) y arriba del header (1000) */
 
+  /* Estética y Opacidad de Fondo */
   background: rgba(2, 8, 23, 0.55);
 
+  /* Estado Inicial Totalmente Oculto */
   opacity: 0;
   visibility: hidden;
-
   pointer-events: none;
 
-  z-index: 1090;
-
+  /* Animación de Desvanecimiento Suave */
   transition:
-    opacity 0.35s ease,
-    visibility 0.35s ease;
+    opacity var(--transition-normal),
+    visibility var(--transition-normal);
 }
 
+/* --------------------------------------------------------------------------
+   ESTADO ACTIVO (Clase Conmutada por JavaScript)
+   Desvanece la capa hacia visible y habilita la interactividad del puntero.
+   -------------------------------------------------------------------------- */
 .overlay.active {
   opacity: 1;
   visibility: visible;
-
   pointer-events: auto;
 }

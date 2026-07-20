@@ -1,151 +1,140 @@
 /* ==========================================================================
-   TECHNOLOGIES
+   TECHNOLOGIES (Módulo de Stack Técnico y Habilidades)
    ========================================================================== */
 
-/* ===========================
-   SECCIÓN
-=========================== */
-
+/* ==========================================================================
+   1. INFRAESTRUCTURA DE SECCIÓN (.technologies)
+   ========================================================================== */
 .technologies {
   position: relative;
 }
 
+/* Máscara de gradiente superior para suavizar la transición entre secciones */
 .technologies::before {
   content: "";
-
   position: absolute;
-
   top: -180px;
   left: 0;
+  pointer-events: none;
 
+  /* Dimensiones */
   width: 100%;
   height: 180px;
 
-  pointer-events: none;
-
+  /* Fondo Degradado */
   background: linear-gradient(
     to bottom,
     transparent,
     rgba(2, 8, 23, 0.35),
     var(--color-primario)
   );
-
-  
 }
 
-/* ===========================
-   CATEGORÍAS
-=========================== */
-
+/* ==========================================================================
+   2. CONTENEDORES DE CATEGORÍAS (.technologies-categories)
+   ========================================================================== */
+/* Bloque elástico contenedor de los grupos técnicos */
 .technologies-categories {
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 4vw, 3rem);
 }
 
-/* ===========================
-   BLOQUE DE CATEGORÍA
-=========================== */
-
+/* Contenedor estructural del grupo de habilidades individuales */
 .technology-group {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
+/* Título de la subcategoría técnica (ej: Front-end, Herramientas) */
 .technology-group-title {
+  /* Disposición Flexible Alineada */
   display: flex;
-
   align-items: center;
-
   gap: 1rem;
-
   margin-bottom: 2rem;
 
+  /* Propiedades Tipográficas y Color */
   font-size: 1.45rem;
-
   font-weight: 700;
-
   color: var(--color-secundario);
 }
 
+/* Viñeta circular iluminada cian a la izquierda del título */
 .technology-group-title::before {
   content: "";
-
   width: 10px;
-
   height: 10px;
-
   border-radius: 50%;
-
   background: var(--color-azul-turquesa);
-
   box-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
 }
 
+/* Línea divisoria decorativa con desvanecimiento hacia la derecha */
 .technology-group-title::after {
   content: "";
-
   flex: 1;
-
   height: 1px;
-
   background: linear-gradient(to right, rgba(34, 211, 238, 0.3), transparent);
 }
 
+/* ==========================================================================
+   3. REJILLA Y TARJETAS (.technologies-grid)
+   ========================================================================== */
+
+/* Rejilla de cuadrícula auto-ajustable para las tarjetas */
 .technologies-grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
   gap: 1.5rem;
 }
 
+/* Contenedor maestro de la tarjeta de tecnología individual */
 .technology-card {
+  /* Posicionamiento y Caja */
   position: relative;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 1.25rem;
 
+  /* Dimensiones y Relleno de Caja */
   padding: 1.75rem;
   min-height: 220px;
 
+  /* Estética, Esquinas y Bordes */
   border-radius: var(--radius-xl);
-
   background: rgba(255, 255, 255, 0.04);
-
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ==========================================================================
+   4. ELEMENTOS INTERNOS DE LA TARJETA (Iconografía y Tipografía)
+   ========================================================================== */
+
+/* Bloque contenedor o vector del icono de desarrollo */
 .technology-card-icon {
   font-size: 2.6rem;
-
   color: var(--color-azul-turquesa);
 }
 
+/* Etiqueta superior corta en formato uppercase */
 .technology-card-category {
   font-size: 0.8rem;
-
   text-transform: uppercase;
-
   letter-spacing: 0.08em;
-
   color: var(--color-gris-400);
 }
 
+/* Nombre de la tecnología o software */
 .technology-card-title {
   font-size: 1.35rem;
-
   font-weight: 700;
-
   color: white;
 }
 
+/* Cuerpo de texto con el resumen o descripción de destrezas */
 .technology-card-description {
   color: var(--color-gris-200);
-
   line-height: 1.7;
 }

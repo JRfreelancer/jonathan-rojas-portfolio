@@ -18,19 +18,21 @@
 
 .testimonials-slider {
   position: relative;
-
   overflow: hidden;
 }
 
 .testimonials-track {
   display: flex;
-  /* touch-action: pan-y; */
   align-items: stretch;
   gap: 2rem;
   cursor: grab;
   transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-
   will-change: transform, opacity;
+  /* touch-action: pan-y; */
+  /* ↑ queda comentado en el original: revisa si esto fue a propósito.
+     Sin touch-action, en móvil el navegador podría interpretar el
+     arrastre horizontal como scroll de página en vez de swipe del
+     slider. */
 }
 
 .testimonials-track.is-dragging {
@@ -38,7 +40,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. PAGINACIÓN
+   3. PAGINACIÓN — contenedor
    -------------------------------------------------------------------------- */
 
 .testimonials-pagination {
@@ -51,7 +53,6 @@
 
 /* --------------------------------------------------------------------------
    4. TARJETA DE TESTIMONIO (base)
-   Ya consolidada: incluye isolation, estructura y transición base.
    -------------------------------------------------------------------------- */
 
 .testimonial-card {
@@ -59,6 +60,7 @@
   isolation: isolate;
   display: flex;
   flex-direction: column;
+
   flex: 0 0 calc((100% - (2 * 2rem)) / 3);
   height: 100%;
   overflow: hidden;
@@ -135,7 +137,6 @@
 
 /* --------------------------------------------------------------------------
    5. COMILLAS DECORATIVAS
-   Ya consolidada en una sola definición (posición, tamaño y transición).
    -------------------------------------------------------------------------- */
 
 .testimonial-quote {
@@ -160,7 +161,6 @@
 
 /* --------------------------------------------------------------------------
    6. VALORACIÓN (estrellas)
-   Ya consolidada con su transición incluida.
    -------------------------------------------------------------------------- */
 
 .testimonial-rating {
@@ -175,11 +175,6 @@
   transition:
     transform 0.35s ease,
     filter 0.35s ease;
-}
-
-.testimonial-card:hover .testimonial-rating .svg-inline--fa {
-  transform: translateY(-2px);
-  text-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
 }
 
 /* --------------------------------------------------------------------------
@@ -203,13 +198,13 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-
+  /* Empuja el autor al fondo de la tarjeta (junto con flex:1 1 auto
+     en .testimonial-text), para que todas las tarjetas queden con el
+     autor alineado aunque el texto tenga distinto largo. */
   margin-top: auto;
   padding-top: 2rem;
 }
 
-/* Avatar ya consolidado: incluye el borde con degradado (antes en la
-   sección "AVATAR — BORDE CON DEGRADADO"). */
 .testimonial-avatar {
   position: relative;
   width: 74px;
@@ -232,15 +227,10 @@
 
 .testimonial-avatar img {
   display: block;
-
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   border-radius: 50%;
-
   transition: transform 0.45s ease;
 }
 
@@ -323,6 +313,10 @@
 
 /* --------------------------------------------------------------------------
    11. HOVER DE LAS ESTRELLAS DE VALORACIÓN
+   ⚠ DUPLICADO — ver sección 6. Mismo selector, con
+   rgba(250,204,21,.45) / 10px de blur — parece un color anterior
+   (#facc15) que quedó sin actualizar al color actual (#fbbf24).
+   Recuerda además que "text-shadow" no afecta a los <svg>.
    -------------------------------------------------------------------------- */
 
 .testimonial-card:hover .testimonial-rating .svg-inline--fa {
@@ -343,8 +337,7 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   14. TARJETA DESTACADA
-   Ya consolidada en un solo bloque.
+   13. TARJETA DESTACADA
    -------------------------------------------------------------------------- */
 
 .testimonial-card-featured {
@@ -374,7 +367,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   16. TARJETA DESTACADA — estilos internos
+   14. TARJETA DESTACADA — estilos internos
    -------------------------------------------------------------------------- */
 
 .testimonial-card-featured .testimonial-author-name {
@@ -389,6 +382,9 @@
   border-color: rgba(34, 211, 238, 0.35);
 }
 
+/* ⚠ Sin color de fondo ni de texto definidos — con solo posición,
+   padding y tipografía, el badge podría no distinguirse visualmente
+   de su fondo. Probablemente falte un "background" y un "color". */
 .testimonial-badge {
   position: absolute;
   top: 24px;
@@ -401,9 +397,17 @@
 }
 
 /* --------------------------------------------------------------------------
-   19. ANIMACIÓN DE ENTRADA (redefinición final)
-   ⚠ DUPLICADO — idéntico a la sección 15
+   15. ANIMACIÓN DE ENTRADA
+   Estado inicial (oculto) + estado final cuando se agrega ".is-visible"
+   vía JS (IntersectionObserver). La transición vive en ".is-visible"
+   porque solo se necesita animar en una dirección (al aparecer), así
+   que no hace falta declararla también en el estado base.
    -------------------------------------------------------------------------- */
+
+.testimonial-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
 
 .testimonial-card.is-visible {
   opacity: 1;
@@ -413,37 +417,28 @@
     transform 0.6s ease;
 }
 
-.testimonial-card {
-  opacity: 0;
-  transform: translateY(40px);
-}
+/* --------------------------------------------------------------------------
+   16. FLECHAS DE NAVEGACIÓN
+   -------------------------------------------------------------------------- */
 
 .testimonial-arrow {
   position: absolute;
-
   top: 50%;
-
   transform: translateY(-50%);
-
   width: 52px;
-
   height: 52px;
-
   border: none;
-
   border-radius: 50%;
-
   cursor: pointer;
-
   background: rgba(255, 255, 255, 0.05);
-
   backdrop-filter: blur(12px);
-
   color: var(--color-secundario);
-
-  transition: 0.35s ease;
-
+  transition:
+    background var(--transition-normal),
+    transform var(--transition-fast),
+    color var(--transition-fast);
   z-index: 10;
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .testimonial-arrow-prev {
@@ -456,29 +451,21 @@
 
 .testimonial-arrow:hover {
   background: rgba(34, 211, 238, 0.15);
-
   color: var(--color-azul-turquesa);
-
   transform: translateY(-50%) scale(1.08);
 }
 
-/* ==========================================================================
-   PAGINACIÓN
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   17. PUNTOS DE PAGINACIÓN
+   -------------------------------------------------------------------------- */
 
 .testimonial-dot {
   width: 12px;
-
   height: 12px;
-
   border: none;
-
   border-radius: 50%;
-
   cursor: pointer;
-
   background: rgba(255, 255, 255, 0.18);
-
   transition:
     transform 0.35s ease,
     background 0.35s ease;
@@ -486,47 +473,36 @@
 
 .testimonial-dot:hover {
   background: var(--color-azul-turquesa);
-
   transform: scale(1.2);
 }
 
 .testimonial-dot.is-active {
   background: var(--color-azul-turquesa);
-
   transform: scale(1.25);
 }
+
+/* --------------------------------------------------------------------------
+   18. ETIQUETA DE SERVICIO
+   -------------------------------------------------------------------------- */
 
 .testimonial-service {
   display: inline-flex;
   align-items: center;
-
   padding: 0.45rem 0.9rem;
-
   margin-top: 0.9rem;
-
   border-radius: var(--radius-pill);
-
   background: rgba(34, 211, 238, 0.12);
-
   border: 1px solid rgba(34, 211, 238, 0.18);
-
   color: var(--color-azul-turquesa);
-
   font-size: 0.78rem;
-
   font-weight: 600;
-
   letter-spacing: 0.03em;
-
   transition:
     background 0.35s ease,
     transform 0.35s ease;
 }
 
-.testimonial-card:hover .testimonial-service{
-
-    background:rgba(34,211,238,.18);
-
-    transform:translateY(-2px);
-
+.testimonial-card:hover .testimonial-service {
+  background: rgba(34, 211, 238, 0.18);
+  transform: translateY(-2px);
 }

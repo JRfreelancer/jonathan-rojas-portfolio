@@ -1,43 +1,49 @@
 /* ==========================================================================
-   CONFIGURACIÓN GLOBAL
-========================================================================== */
+   CONFIGURACIÓN GLOBAL Y ESTRUCTURA BASE
+   --------------------------------------------------------------------------
+   Establece las directrices principales de comportamiento del cuerpo del
+   documento, las secciones generales y las reglas de los contenedores.
+   ========================================================================== */
 
+/* Configuración de flujo y renderizado del cuerpo principal */
 body {
+  overflow-x: hidden;
+  min-height: 100vh; /* Heredado del reset para consistencia */
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
   font-family: var(--fuente-secundaria);
   font-size: 1rem;
   line-height: var(--line-height-base);
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
-  overflow-x: hidden;
 }
 
-/* Contenido principal */
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR PRINCIPAL Y SECCIONES (.container & main)
+   -------------------------------------------------------------------------- */
+
+/* Bloque contenedor del flujo (Unificado y ordenado) */
 main {
   display: block;
+  padding-top: var(--navbar-height); /* Compensa la barra de navegación fija */
 }
 
-/* Secciones generales */
+/* Espaciados y comportamiento nativo de las secciones del portafolio */
 main > section {
   position: relative;
   padding: 6rem 0;
 }
 
-/* ==========================================================================
-   CONTENEDOR GLOBAL
-========================================================================== */
-
+/* Envoltura elástica que delimita el ancho máximo de la grilla en el viewport */
 .container {
   width: min(var(--container-width), 92%);
   max-width: var(--container-width);
   margin-inline: auto;
 }
 
-/* Selección de texto */
+/* --------------------------------------------------------------------------
+   2. INTERFACES DE USUARIO (U.I. Selección de Texto)
+   -------------------------------------------------------------------------- */
+/* Altera la estética visual cuando un usuario arrastra y resalta bloques de texto */
 ::selection {
   background: var(--color-azul-turquesa);
   color: var(--color-primario);
-}
-main {
-  display: block;
-  padding-top: var(--navbar-height);
 }
