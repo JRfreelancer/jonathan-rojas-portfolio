@@ -1,0 +1,100 @@
+/* ==========================================================================
+   SECCIÓN STORY: RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* --- Dispositivos Medianos (Pantallas hasta 992px) ------------------------ */
+@media (max-width: 992px) {
+  /* Distribución de la cuadrícula principal en tabletas horizontales */
+  .about-story__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 340px);
+    gap: 2.5rem;
+  }
+
+  /* Asegura que el contenido use todo el ancho disponible */
+  .about-story__content {
+    max-width: 100%;
+  }
+}
+
+/* --- Dispositivos Pequeños (Pantallas hasta 768px) ----------------------- */
+@media (max-width: 768px) {
+  /* Ajuste de espaciado vertical de la sección */
+  .about-story {
+    padding-block: 6rem;
+  }
+
+  /* Centrado de textos principales */
+  .about-story__header,
+  .about-story__quote {
+    text-align: center;
+  }
+
+  /* Centrado horizontal de bloques de texto mediante márgenes automáticos */
+  .about-story__header {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  .about-story__quote {
+    max-width: 500px;
+    margin-inline: auto;
+    margin-top: 3rem;
+  }
+
+  /* Cambio a una sola columna para pantallas móviles */
+  .about-story__grid,
+  .about-story__principles {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ajuste de separación en las cuadrículas */
+  .about-story__grid {
+    gap: 3rem;
+  }
+  .about-story__principles {
+    gap: 1.5rem;
+  }
+
+  /* Reducción del relleno en las tarjetas interiores */
+  .about-story__card {
+    padding: 1.5rem;
+  }
+
+  /* Estilizado decorativo para la letra capital del primer párrafo */
+  .about-story__content p:first-child::first-letter {
+    font-size: 3.2rem;
+    margin-right: 0.25rem;
+    line-height: 0.85;
+  }
+}
+
+/* --- Dispositivos Extra Pequeños (Pantallas hasta 576px) ----------------- */
+@media (max-width: 576px) {
+  /* Reducción de espaciados y centrado para pantallas muy estrechas */
+  .about-story {
+    padding-block: 5rem;
+  }
+  .about-story__card {
+    padding: 1.35rem;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  /* Liberación del ancho máximo para ocupar toda la pantalla móvil */
+  .about-story__header,
+  .about-story__content {
+    max-width: 100%;
+  }
+
+  /* Ajustes de tipografía para mejorar la legibilidad en móviles */
+  .about-story__title {
+    font-size: 2.3rem;
+  }
+  .about-story__intro {
+    font-size: 1rem;
+  }
+
+  .about-story__content {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+}

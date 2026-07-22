@@ -1,0 +1,20 @@
+/* ==========================================================================
+   COMPONENTE: UTILERÍA DE BRILLO AMBIENTAL (Glow Effect)
+   --------------------------------------------------------------------------
+   Clase reutilizable para crear halos de luz difusos y decorativos.
+   Nota: Requiere dimensiones (width/height), color de fondo (background) 
+   y coordenadas de posición (top/left) en el elemento que la use.
+   ========================================================================== */
+
+.glow {
+  /* ===== 1. POSICIONAMIENTO Y CAPAS ===== */
+  position: absolute;
+  z-index: var(--z-behind); /* Se posiciona de fondo para no tapar el texto */
+
+  /* ===== 2. GEOMETRÍA Y FORMA ===== */
+  border-radius: 50%; /* Fuerza la forma circular del halo */
+
+  /* ===== 3. EFECTOS VISUALES Y TRANSPARENCIA ===== */
+  filter: blur(var(--blur-xl)); /* Desenfoque extremo para suavizar la luz */
+  opacity: 0.35; /* Controla la intensidad del brillo */
+}

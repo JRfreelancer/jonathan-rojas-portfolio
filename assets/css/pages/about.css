@@ -1,0 +1,22 @@
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+
+@import url("./about/hero.css");
+@import url("./about/story.css");
+@import url("./about/philosophy.css");
+@import url("./about/expectations.css");
+@import url("./about/skill.css");
+@import url("./about/experience.css");
+@import url("./about/cta.css");
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@import url("./about/responsive/hero.css");
+@import url("./about/responsive/story.css");
+@import url("./about/responsive/philosophy.css");
+@import url("./about/responsive/skills.css");
+@import url("./about/responsive/experience.css");
+@import url("./about/responsive/cta.css");

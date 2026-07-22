@@ -1,0 +1,40 @@
+/* ==========================================================================
+   COMPONENTE: SISTEMA DE VIDRIO (Glassmorphism Core)
+   --------------------------------------------------------------------------
+   Gestiona la infraestructura base de los contenedores translúcidos y sus
+   diferentes niveles de opacidad o contraste según el diseño.
+   ========================================================================== */
+
+/* 1. CLASE BASE (Estructura estándar de vidrio)
+   -------------------------------------------------------------------------- */
+.glass {
+  /* ===== Posicionamiento y Desborde ===== */
+  position: relative;
+  overflow: hidden;
+
+  /* ===== Forma y Fronteras ===== */
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, var(--opacity-10));
+
+  /* ===== Fondos y Filtros Especiales ===== */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(var(--blur-md));
+
+  /* ===== Dinámica de Animación ===== */
+  transition: 
+    transform var(--duration-base) var(--ease-spring), 
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+/* 2. VARIANTES DEL COMPONENTE (Modificadores de opacidad)
+   -------------------------------------------------------------------------- */
+
+/* Variante Suave: Ideal para fondos secundarios o secciones sutiles */
+.glass--soft {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Variante Fuerte: Ideal para destacar tarjetas principales sobre el fondo */
+.glass--strong {
+  background: rgba(255, 255, 255, 0.05);
+}

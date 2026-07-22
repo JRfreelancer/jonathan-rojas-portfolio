@@ -1,35 +1,56 @@
 /* ==========================================================================
-   VARIABLES GLOBALES
-========================================================================== */
-
+   VARIABLES GLOBALES (:root)
+   ========================================================================== */
 :root {
-  /* ===== Colores ===== */
-
+  /* ===== 1. PALETA DE COLORES ===== */
+  /* Colores Base */
   --color-primario: #020817;
   --color-secundario: #ffffff;
-
   --color-azul-oscuro: #03133f;
   --color-azul-turquesa: #22d3ee;
 
+  /* Escala de Grises */
   --color-gris-100: #f8fafc;
   --color-gris-200: #e2e8f0;
   --color-gris-400: #94a3b8;
   --color-gris-600: #475569;
   --color-gris-900: #0f172a;
 
+  /* Colores de Estado / Alertas */
   --color-amarillo: #facc15;
   --color-verde: #16a34a;
   --color-rojo: #ef4444;
 
-  /* ===== Tipografía ===== */
+  /* ===== 2. VARIABLES SEMÁNTICAS ===== */
+  /* Mapeo de funciones específicas a colores de la paleta */
+  --color-background: var(--color-primario);
+  --color-text: var(--color-secundario);
+  --color-primary: var(--color-azul-turquesa);
 
+  /* ===== 3. TIPOGRAFÍA Y ESCALA VISUAL ===== */
+  /* Familias Tipográficas */
   --fuente-principal: "Outfit", sans-serif;
   --fuente-secundaria: "Inter", sans-serif;
 
-  --line-height-base: 1.6;
+  /* Interlineado (Line Height) */
+  --leading-tight: 1.1;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
 
-  /* ===== Espaciados ===== */
+  /* Tamaños de Texto */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --text-4xl: 4rem;
+  --text-5xl: 5rem;
 
+  /* ===== 4. LAYOUT Y ESPACIADOS ===== */
+  /* Margen y Padding */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
@@ -37,10 +58,14 @@
   --space-xl: 3rem;
   --space-2xl: 5rem;
 
-  /* ========================================================================== */
-  /* BORDER RADIUS */
-  /* ========================================================================== */
+  /* Dimensiones de Estructura */
+  --container-max-width: 1320px;
+  --container-width: var(--container-max-width);
+  --content-width: 40rem;
+  --navbar-height: 84px;
 
+  /* ===== 5. COMPONENTES VISUALES (Bordes y Sombras) ===== */
+  /* Radio de Bordes */
   --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -48,37 +73,72 @@
   --radius-xl: 30px;
   --radius-2xl: 40px;
   --radius-pill: 999px;
-  /* ===== Sombras ===== */
 
+  /* ===== Sombras Especiales ===== */
+  --shadow-glass: 0 25px 60px rgba(0, 0, 0, 0.35);
+  --shadow-glass-hover: 0 35px 80px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 60px rgba(34, 211, 238, 0.12);
+
+  /* Sombras de Caja */
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.15);
   --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --shadow-showcase: 0 20px 60px rgba(0, 0, 0, 0.35);
 
-  /* ===== Transiciones ===== */
+  /* ===== 6. EFECTOS Y SISTEMA DE FONDOS ===== */
+  /* Colores de Fondo */
+  --bg-primary: #020817;
+  --bg-secondary: #061124;
+  --vignette: rgba(0, 0, 0, 0.38);
 
+  /* Brillos de Fondo (Glows) */
+  --glow-cyan: rgba(34, 211, 238, 0.1);
+  --glow-blue: rgba(59, 130, 246, 0.08);
+  --glow-white: rgba(255, 255, 255, 0.04);
+  --bg-glow-primary: rgba(34, 211, 238, 0.2);
+  --bg-glow-secondary: rgba(59, 130, 246, 0.14);
+  --bg-glow-soft: rgba(255, 255, 255, 0.08);
+
+  /* Tamaños de Brillo */
+  --glow-size-sm: 180px;
+  --glow-size-md: 280px;
+  --glow-size-lg: 420px;
+
+  /* Patrones Hexagonales */
+  --hex-light: rgba(255, 255, 255, 0.08);
+  --hex-cyan: rgba(34, 211, 238, 0.18);
+  --hex-blue: rgba(59, 130, 246, 0.12);
+  --bg-hex-border: rgba(34, 211, 238, 0.18);
+  --bg-hex-inner: rgba(255, 255, 255, 0.06);
+  --bg-hex-fill: rgba(3, 19, 63, 0.08);
+
+  /* Opacidad y Desenfoque (Blur) */
+  --opacity-10: 0.1;
+  --opacity-20: 0.2;
+  --opacity-40: 0.4;
+  --opacity-60: 0.6;
+  --opacity-80: 0.8;
+  --blur-sm: 8px;
+  --blur-md: 14px;
+  --blur-lg: 24px;
+  --blur-xl: 80px;
+
+  /* ===== 7. TRANSICIONES Y ANIMACIONES ===== */
+  /* Duraciones */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
   --transition-base: 0.35s ease;
+  --duration-fast: 200ms;
+  --duration-base: 350ms;
+  --duration-slow: 600ms;
+
+  /* Curvas de Tiempo (Easing) */
   --transition-spring: 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-standard: ease;
+  --ease-spring: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-  /* ===== Layout ===== */
-
-  --container-max-width: 1320px;
-  --navbar-height: 84px;
-
-  /* ===== Variables semánticas ===== */
-
-  --color-background: var(--color-primario);
-  --color-text: var(--color-secundario);
-  --color-primary: var(--color-azul-turquesa);
-
-  --container-width: var(--container-max-width);
-
-  /* ===== Layout ===== */
-
-  /* ===== Z-index ===== */
-
+  /* ===== 8. CAPAS DE POSICIONAMIENTO (Z-Index) ===== */
   --z-behind: -1;
   --z-base: 1;
   --z-dropdown: 100;
@@ -87,41 +147,10 @@
   --z-modal: 1000;
   --z-tooltip: 1100;
 
-  /* ===== Content ===== */
-
-  --content-width: 40rem;
-  --shadow-showcase: 0 20px 60px rgba(0, 0, 0, 0.35);
-
-  /* ==========================================================
-   BACKGROUND EFFECTS
-========================================================== */
-
-  --bg-primary: #020817;
-  --bg-secondary: #061124;
-
-  --glow-cyan: rgba(34, 211, 238, 0.1);
-  --glow-blue: rgba(59, 130, 246, 0.08);
-  --glow-white: rgba(255, 255, 255, 0.04);
-
-  --hex-light: rgba(255, 255, 255, 0.08);
-  --hex-cyan: rgba(34, 211, 238, 0.18);
-  --hex-blue: rgba(59, 130, 246, 0.12);
-
-  --vignette: rgba(0, 0, 0, 0.38);
-
-  /* ==========================================================
-   BACKGROUND SYSTEM
-========================================================== */
-
-  --bg-glow-primary: rgba(34, 211, 238, 0.2);
-
-  --bg-glow-secondary: rgba(59, 130, 246, 0.14);
-
-  --bg-glow-soft: rgba(255, 255, 255, 0.08);
-
-  --bg-hex-border: rgba(34, 211, 238, 0.18);
-
-  --bg-hex-inner: rgba(255, 255, 255, 0.06);
-
-  --bg-hex-fill: rgba(3, 19, 63, 0.08);
+  /* ==========================================================================
+   SPACING
+   ========================================================================== */
+  --section-space-desktop: 8rem;
+  --section-space-tablet: 6rem;
+  --section-space-mobile: 5rem;
 }

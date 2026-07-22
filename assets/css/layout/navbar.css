@@ -221,3 +221,17 @@
     padding-inline: 1rem;
   }
 }
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(2, 8, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}

@@ -1,0 +1,360 @@
+/* ==========================================================================
+   SECCIÓN: ABOUT HERO (Cabecera Principal)
+   ========================================================================== */
+
+/* 1. INFRAESTRUCTURA Y CONTENEDOR BASE
+   -------------------------------------------------------------------------- */
+.about-hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--navbar-height);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.about-hero__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-hero__wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(380px, 430px);
+  align-items: center;
+  min-height: calc(100vh - var(--navbar-height));
+  gap: clamp(3rem, 5vw, 5rem);
+}
+
+/* 2. BLOQUE DE TEXTOS Y BIOGRAFÍA
+   -------------------------------------------------------------------------- */
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 760px;
+}
+
+.about-hero__title {
+  max-width: 80%;
+  font-size: clamp(2.3rem, 3.6vw, 3.8rem);
+  line-height: 0.95;
+}
+
+.about-hero__description {
+  max-width: 38rem;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--color-gris-400);
+}
+
+.about-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+/* 3. COLUMNA VISUAL Y TARJETA DEL PORTAFOLIO
+   -------------------------------------------------------------------------- */
+.about-hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Envoltura limitadora multimedia */
+.about-hero__media {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+  transform: translateX(-1rem);
+}
+
+/* Tarjeta con efecto Glassmorphism */
+.about-hero__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Estilos visuales */
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(var(--blur-md));
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    0 0 60px rgba(34, 211, 238, 0.08);
+
+  /* Transición suave de estados */
+  transition:
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+/* Estado Hover: Elevación y realce de luces (CORREGIDO) */
+.about-hero__card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 80px rgba(34, 211, 238, 0.15);
+}
+
+/* Fotografía adaptativa */
+.about-hero__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+/* Pie de tarjeta y textos */
+.about-hero__caption {
+  position: relative;
+  padding: 2rem;
+}
+
+/* Separador sutil superior */
+.about-hero__caption::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.about-hero__name {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+  color: var(--color-secundario);
+}
+
+.about-hero__role {
+  font-size: var(--text-base);
+  letter-spacing: 0.03em;
+  color: var(--color-gris-400);
+}
+
+/* 4. ELEMENTOS FLOTANTES, CHIPS Y EFECTOS AMBIENTALES
+   -------------------------------------------------------------------------- */
+/* Halo de luz difuso trasero */
+.about-hero__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+  background: rgba(34, 211, 238, 0.35);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* Etiquetas e insignias de habilidades */
+.about-hero__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.about-hero__chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-gris-300);
+  backdrop-filter: blur(8px);
+}
+
+/* Badges flotantes interactivos */
+.about-hero__floating {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 18px;
+  background: rgba(8, 15, 32, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  /* Animación cíclica */
+  animation: floating 5s ease-in-out infinite;
+}
+
+.about-hero__floating i {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--color-primary);
+}
+
+.about-hero__floating strong {
+  display: block;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.about-hero__floating small {
+  color: var(--color-gris-400);
+}
+
+/* Posiciones específicas de los elementos flotantes */
+.about-hero__floating--design {
+  top: 8%;
+  right: -45px;
+  transform: rotate(-2deg);
+}
+
+.about-hero__floating--code {
+  left: -60px;
+  bottom: 24%;
+  transform: rotate(2deg);
+}
+
+.about-hero__floating--seo {
+  right: -55px;
+  bottom: 12%;
+  transform: rotate(-1deg);
+}
+
+/* 5. SISTEMA DE ANIMACIONES (Keyframes)
+   -------------------------------------------------------------------------- */
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ==========================================================================
+   BADGE
+   ========================================================================== */
+
+.about-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.6rem 1.2rem;
+
+  border-radius: var(--radius-pill);
+
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+
+  color: var(--color-primary);
+
+  font-size: var(--text-sm);
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  transition: all var(--duration-base) var(--ease-spring);
+}
+
+/* ==========================================================================
+   NOMBRE
+   ========================================================================== */
+
+.about-hero__name {
+  margin-bottom: 0.4rem;
+
+  font-size: var(--text-xl);
+
+  font-weight: 700;
+
+  color: var(--color-secundario);
+}
+
+/* ==========================================================================
+   ROL
+   ========================================================================== */
+
+.about-hero__role {
+  color: var(--color-gris-400);
+
+  font-size: var(--text-base);
+
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   DISPONIBILIDAD
+   ========================================================================== */
+
+.about-hero__status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  margin-top: 1.5rem;
+
+  padding-top: 1.25rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  font-size: var(--text-sm);
+
+  color: var(--color-gris-200);
+}
+
+.about-hero__status-dot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--color-verde);
+
+  box-shadow: 0 0 18px var(--color-verde);
+
+  animation: pulse 2.5s infinite;
+}
+
+/* ==========================================================================
+   PULSE
+   ========================================================================== */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.25);
+
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+}

@@ -7,7 +7,7 @@
 $showcaseCards = [
 
     [
-        'image' => 'assets/img/hero/imagen_slider_04.webp',
+        'image' => 'assets/img/about/jonathan-rojas.webp',
         'title' => 'Jonathan Rojas',
         'tag' => 'Freelancer',
         'description' => 'Diseño experiencias digitales modernas, rápidas y enfocadas en resultados.',

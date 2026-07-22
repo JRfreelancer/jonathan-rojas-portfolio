@@ -1,0 +1,285 @@
+/* ==========================================================================
+   SECCIÓN: ABOUT STORY (Nuestra Historia / Trayectoria)
+   ========================================================================== */
+
+/* 1. INFRAESTRUCTURA Y EFECTOS AMBIENTALES
+   -------------------------------------------------------------------------- */
+.about-story {
+  position: relative;
+  padding-block: clamp(7rem, 10vw, 10rem);
+  overflow: hidden;
+}
+
+/* Destello radial decorativo de fondo */
+.about-story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 85% 20%,
+    rgba(34, 211, 238, 0.05),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+/* 2. ENCABEZADO DE LA SECCIÓN (Header)
+   -------------------------------------------------------------------------- */
+.about-story__header {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: clamp(4rem, 6vw, 6rem);
+  text-align: center;
+}
+
+/* Insignia / Tag superior */
+.about-story__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1.3rem;
+  margin-bottom: 1.5rem;
+
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+
+  color: var(--color-azul-turquesa);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.about-story__title {
+  max-width: 14ch;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  line-height: 1.1;
+}
+
+/* Texto introductorio destacado */
+.about-story__intro {
+  max-width: 58ch;
+  margin-inline: auto;
+  color: var(--color-gris-400);
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+/* 3. DISTRIBUCIÓN Y CONTENEDORES (Grid Layout)
+   -------------------------------------------------------------------------- */
+.about-story__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
+  gap: clamp(3rem, 5vw, 6rem);
+  align-items: start;
+}
+
+/* 4. BLOQUE EDITORIAL DE TEXTOS (Content)
+   -------------------------------------------------------------------------- */
+.about-story__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 58ch;
+}
+
+.about-story__content p {
+  color: var(--color-gris-300);
+  font-size: 1.05rem;
+  line-height: 2;
+  text-wrap: pretty;
+}
+
+/* Estilo capitular para el inicio de la historia */
+.about-story__content p:first-child::first-letter {
+  float: left;
+  margin-right: 0.45rem;
+  margin-top: 0.15rem;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 0.9;
+  color: var(--color-azul-turquesa);
+}
+
+/* 5. SECCIÓN DE PRINCIPIOS Y VALORES
+   -------------------------------------------------------------------------- */
+.about-story__principles {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.principle-card {
+  position: relative;
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.principle-card i {
+  margin-bottom: 1.25rem;
+  font-size: 2rem;
+  color: var(--color-azul-turquesa);
+}
+
+.principle-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.principle-card p {
+  color: var(--color-gris-400);
+  line-height: 1.8;
+}
+
+.principle-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34, 211, 238, 0.25);
+  box-shadow: 0 15px 40px rgba(34, 211, 238, 0.1);
+}
+
+/* 6. COMPONENTE DE CITA EDITORIAL (Personal Quote & Author)
+   -------------------------------------------------------------------------- */
+.about-story__quote {
+  position: relative;
+  margin-top: 3rem;
+  padding: 2rem;
+  overflow: hidden;
+
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(12px);
+
+  /* Transición base del bloque de la cita */
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Capas decorativas de la tarjeta de cita (Gradiente y comillas traseras) */
+.about-story__quote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(34, 211, 238, 0.1),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+.about-story__quote::after {
+  content: "❞";
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  font-size: 7rem;
+  line-height: 1;
+  color: rgba(34, 211, 238, 0.05);
+  pointer-events: none;
+}
+
+/* Estructura interna de la cita */
+.about-story__quote-icon {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--color-azul-turquesa);
+  opacity: 0.9;
+}
+
+.about-story__blockquote {
+  margin: 0;
+}
+
+.about-story__blockquote p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  font-style: italic;
+  color: var(--color-secundario);
+}
+
+/* Bloque del Autor */
+.about-story__author {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Línea decorativa animada sobre el bloque del autor */
+.about-story__author::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.about-story__author-name {
+  font-family: "Caveat", cursive;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-secundario);
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+.about-story__author-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gris-400);
+}
+
+/* 7. ESTADOS INTERACTIVOS DE LA CITA (Hovers combinados)
+   -------------------------------------------------------------------------- */
+.about-story__quote:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.2);
+  box-shadow: 0 20px 45px rgba(34, 211, 238, 0.08);
+}
+
+/* Expande e ilumina la línea divisoria del autor al pasar el mouse por la tarjeta */
+.about-story__quote:hover .about-story__author::before {
+  width: 120px;
+  background: rgba(34, 211, 238, 0.6);
+}
+
+/* Agranda sutilmente y tiñe la firma del autor en hover */
+.about-story__quote:hover .about-story__author-name {
+  transform: scale(1.04);
+  color: var(--color-azul-turquesa);
+}
