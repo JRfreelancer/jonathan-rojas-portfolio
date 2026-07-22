@@ -11,8 +11,13 @@
 }
 
 /* --- Fondos Ambientales y Efectos de Luces (Glows) ----------------------- */
-/* Degradado radial sutil de fondo */
+/* Doble degradado radial sutil de fondo */
 .about-cta::before {
+  content: ""; /* CORRECCIÓN: Se restauraron las propiedades obligatorias para que el pseudo-elemento se renderice */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
   background:
     radial-gradient(
       circle at 30% 40%,
@@ -26,7 +31,7 @@
     );
 }
 
-/* Esfera difuminada de acento Cyan (Ajustada altura al 35%) */
+/* Esfera difuminada de acento Cyan */
 .about-cta::after {
   content: "";
   position: absolute;
@@ -90,7 +95,7 @@
   flex-wrap: wrap;
 }
 
-/* Botón Destacado Principal */
+/* Botón Destacado Principal con efecto Shimmer */
 .about-cta__button {
   position: relative;
   overflow: hidden;
@@ -106,22 +111,18 @@
     box-shadow 0.35s ease;
 }
 
+/* Línea de brillo reflectivo al pasar el cursor */
 .about-cta__button::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   transform: translateX(-120%);
-
   background: linear-gradient(
     120deg,
     transparent,
     rgba(255, 255, 255, 0.18),
     transparent
   );
-
   transition: transform 0.8s ease;
 }
 
@@ -166,6 +167,69 @@
   transform: translateX(5px);
 }
 
+/* --- Bloque de Metadatos Base (Desktop) ---------------------------------- */
+/* CORRECCIÓN GLOBAL: Se extrajeron estos estilos del bloque móvil para que funcionen en todas las pantallas */
+.about-cta__meta {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-cta__availability {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--color-gris-400);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.about-cta__availability i {
+  color: var(--color-verde);
+}
+
+/* Punto indicador con animación pulsante fluida */
+.about-cta__status-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-verde);
+  box-shadow:
+    0 0 0 4px rgba(22, 163, 74, 0.15),
+    0 0 12px rgba(22, 163, 74, 0.35);
+  animation: pulse 2s infinite ease-in-out; /* MEJORA: Se vincula la animación declarada al elemento */
+}
+
+/* Listado de Servicios */
+.about-cta__services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.about-cta__services li {
+  position: relative;
+  color: var(--color-gris-400);
+  font-size: 0.95rem;
+}
+
+/* Separador de viñeta intermedio */
+.about-cta__services li:not(:last-child)::after {
+  content: "•";
+  margin-left: 1rem;
+  color: rgba(34, 211, 238, 0.35);
+}
+
 /* ==========================================================================
    DISEÑO RESPONSIVE (MEDIA QUERIES)
    ========================================================================== */
@@ -176,31 +240,45 @@
     padding-block: 5rem;
   }
 
-  /* Convierte las acciones a distribución vertical compacta */
   .about-cta__actions {
     flex-direction: column;
     gap: 1rem;
-    margin-top: 3rem; /* MEJORA: Reduce la separación exagerada de escritorio */
+    margin-top: 3rem;
   }
 
-  /* Expande el botón principal al ancho completo del móvil */
   .about-cta__button {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Ajuste de separación del bloque meta en tabletas/móviles */
+  .about-cta__meta {
+    margin-top: 3rem;
   }
 }
 
 /* --- Dispositivos Extra Pequeños (Pantallas hasta 576px) ----------------- */
 @media (max-width: 576px) {
-  /* MEJORA: Evita que un título mínimo de 3.5rem desborde o se vea gigante en teléfonos chicos */
   .about-cta .section-title {
     font-size: clamp(2.2rem, 8vw, 3.2rem);
     margin-bottom: 1.75rem;
   }
 
-  /* MEJORA: Suaviza el tamaño del texto descriptivo para pantallas estrechas */
   .about-cta .section-description {
     font-size: 1.05rem;
     line-height: 1.7;
   }
+}
+
+/* --- Animaciones del Sistema --------------------------------------------- */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+  } /* MEJORA: Ajuste sutil para evitar saltos bruscos en el renderizado del box-shadow */
 }
