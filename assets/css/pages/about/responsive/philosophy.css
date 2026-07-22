@@ -105,4 +105,9 @@
     line-height: 1.8;
     color: var(--color-gris-400);
   }
+
+  .about-philosophy {
+    padding-top: clamp(8rem, 10vw, 10rem);
+    padding-bottom: clamp(4rem, 6vw, 5rem);
+  }
 }

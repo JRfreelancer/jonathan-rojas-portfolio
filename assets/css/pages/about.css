@@ -8,7 +8,8 @@
 @import url("./about/expectations.css");
 @import url("./about/skill.css");
 @import url("./about/experience.css");
-@import url("./about/cta.css");
+@import url("./about/about-cta.css");
+@import url("./about/about-technologies.css");
 
 /* ==========================================================================
    RESPONSIVE
