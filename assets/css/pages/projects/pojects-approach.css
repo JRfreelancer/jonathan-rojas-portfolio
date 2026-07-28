@@ -33,30 +33,27 @@
   align-items: center;
 }
 
-/* Máscara técnica y degradado desvanecedor lateral integrado */
+/* Máscara técnica y degradado desvanecedor multidireccional lateral */
 .projects-approach__aside::after {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.12;
-  /* CORRECCIÓN: Se utiliza un degradado múltiple combinado en una sola regla background para evitar que la rejilla técnica se destruya */
+  pointer-events: none;
   background:
     linear-gradient(
-      90deg,
+      to right,
       var(--color-background) 0%,
-      transparent 18%,
-      transparent 82%,
+      transparent 12%,
+      transparent 88%,
       var(--color-background) 100%
     ),
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size:
-    auto,
-    40px 40px,
-    40px 40px;
-  mask-image: radial-gradient(circle, black 45%, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle, black 45%, transparent 90%);
-  pointer-events: none;
+    linear-gradient(
+      to bottom,
+      var(--color-background) 0%,
+      transparent 10%,
+      transparent 90%,
+      var(--color-background) 100%
+    );
 }
 
 /* Destello / Resplandor Cyan de fondo ambiental para el bloque decorativo */
@@ -92,11 +89,26 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  opacity: 0.07;
-  user-select: none;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(180, 210, 230, 0.08)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.18; /* UNIFICACIÓN: Se eliminó el duplicado redundante de opacity: 0.12 */
+  user-select: none; /* UNIFICACIÓN: Se eliminó la doble declaración idéntica */
+  text-shadow: 0 0 25px rgba(34, 211, 238, 0.08);
   transition:
     opacity 0.4s ease,
-    transform 0.4s ease; /* CORRECCIÓN: Definición explícita de transición */
+    transform 0.4s ease;
+}
+
+/* Reacción visual coordinada en las palabras al interactuar con la sección */
+.projects-approach:hover .projects-approach__word {
+  opacity: 0.24;
+  transform: translateY(-3px);
 }
 
 .projects-approach__word:nth-of-type(1) {
@@ -120,7 +132,7 @@
   font-size: 3rem;
 }
 
-/* Puntos separadores estéticos (Ocultos de forma predeterminada) */
+/* Puntos separadores estéticos (Ocultos por diseño) */
 .projects-approach__dot {
   display: none;
 }
@@ -128,7 +140,7 @@
 /* --- Capas Ambientales del Fondo de la Sección -------------------------- */
 .projects-approach__background {
   position: absolute;
-  inset: 0;
+  inset: -60px;
   pointer-events: none;
 }
 
@@ -154,12 +166,44 @@
     linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 42px 42px;
-  mask-image: radial-gradient(circle, black 40%, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 90%);
+
+  /* CORRECCIÓN: Para combinar múltiples máscaras de degradados de desvanecimiento cruzado en CSS nativo se requiere usar la composición matemática interna 'source-in' */
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  mask-composite: source-in;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
 }
 
 /* --- Líneas Abstractas de Acento Decorativo ------------------------------ */
-/* CORRECCIÓN ARQUITECTÓNICA: Se renombró la clase base a 'vector-line' para que no colisione con el diseño de la firma */
 .projects-approach__vector-line {
   position: absolute;
   background: linear-gradient(
@@ -201,7 +245,7 @@
 
 /* Bloque inferior de cierre / firma semántica (<address>) */
 .projects-approach__signature {
-  position: relative; /* Restaura el flujo controlado */
+  position: relative;
   gap: 0.75rem;
 }
 
@@ -243,7 +287,7 @@
 /* --- Elementos de Firma Únicos -------------------------------------------- */
 /* Línea de acento colorida debajo de la firma */
 .projects-approach__line {
-  position: relative; /* CORRECCIÓN: Rompe la regla absolute de las líneas decorativas flotantes */
+  position: relative;
   width: 120px;
   height: 3px;
   background: var(--color-accent);

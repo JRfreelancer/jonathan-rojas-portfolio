@@ -173,11 +173,7 @@ $btnSecondary    = htmlspecialchars($secondaryButton, ENT_QUOTES, 'UTF-8');
 
         <header class="projects-impact__header">
 
-            Badge
 
-            Título
-
-            Descripción
 
         </header>
 
