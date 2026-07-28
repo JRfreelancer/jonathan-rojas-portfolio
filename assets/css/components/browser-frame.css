@@ -1,0 +1,73 @@
+/* ==========================================================================
+   COMPONENTE: BROWSER FRAME (MARCO DE NAVEGADOR SIMULADO)
+   ========================================================================== */
+
+/* --- Contenedor Principal con Efecto Glassmorphism ----------------------- */
+.browser-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: none;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+  will-change: transform;
+}
+
+/* Transición suave y elevación al interactuar con el cursor */
+.browser-frame:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow:
+    0 45px 120px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* --- Barra Superior de Interfaz (Browser UI Header) ---------------------- */
+.browser-frame__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding-inline: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Botones de control del sistema (Cerrar, Minimizar, Maximizar) */
+.browser-frame__controls {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.browser-frame__controls span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Simulación de barra de direcciones URL */
+.browser-frame__address {
+  width: 220px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Pantalla de Visualización de Capturas (Viewport Content) ------------- */
+.browser-frame__content {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.browser-frame__content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

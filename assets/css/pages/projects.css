@@ -1,0 +1,32 @@
+/* ==========================================================================
+   PÁGINA INTERNA: PROYECTOS
+   ========================================================================== */
+
+/* Hero */
+@import url("./projects/projects-hero.css");
+
+/* Proyecto Destacado */
+@import url("./projects/projects-showcase.css");
+
+/* Filtros */
+@import url("./projects/projects-filters.css");
+
+/* Grid de proyectos */
+@import url("./projects/projects-grid.css");
+
+/* Caso de estudio */
+@import url("./projects/projects-case-study.css");
+
+/* Proceso de trabajo */
+@import url("./projects/projects-process.css");
+
+@import url("./projects/pojects-approach.css");
+
+/* Tecnologías */
+@import url("./projects/projects-technologies.css");
+
+/* Llamado a la acción */
+@import url("./projects/projects-cta.css");
+
+/* Responsive */
+@import url("./projects/projects-responsive.css");

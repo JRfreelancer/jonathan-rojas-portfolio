@@ -1,73 +1,91 @@
-<?php
+<?php 
+/** 
+ * ========================================================================== 
+ * VISTA PRINCIPAL: PORTAFOLIO DE PROYECTOS
+ * ========================================================================== 
+ * Archivo maestro que configura los metadatos SEO y compone la estructura 
+ * modular de la sección de proyectos de Jonathan Rojas.
+ */ 
 
-$titulo = "Proyectos | Jonathan Rojas";
+// CONFIGURACIÓN DE METADATOS (SEO): Consumidos dinámicamente por 'includes/head.php'
+$titulo      = 'Proyectos | Jonathan Rojas'; 
+$descripcion = 'Descubre proyectos de diseño web, UI/UX y desarrollo frontend creados para ofrecer experiencias digitales modernas, rápidas y orientadas a resultados.'; 
+$canonical   = '/proyectos'; 
+?> 
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <?php 
+  // Inyección de etiquetas meta, favicons, fuentes y estilos CSS globales 
+  require_once __DIR__ . '/includes/head.php'; 
+  ?> 
+</head> 
+<body> 
 
-$descripcion = "UNa muestra de lo que podemos hacer para llevar al otro nivel tu proyecto.";
+  <?php 
+  // COMPONENTES GLOBALES DE CARGA Y NAVEGACIÓN
+  require_once __DIR__ . '/includes/loader.php'; 
+  require_once __DIR__ . '/includes/navbar.php'; 
+  ?> 
 
-$canonical = "https://jonathanrojas.com/proyectos.php";
+  <!-- ==========================================================================
+       CONTENIDO PRINCIPAL DE LA PÁGINA (SEMÁNTICA DE FLUJO)
+       ========================================================================== -->
+  <main> 
+    
+    <?php 
+    /* --- Fase 1: Introducción y Destacados -------------------------------- */
+    // Pantalla de bienvenida principal de la sección de portafolio
+    require_once __DIR__ . '/includes/projects/projects-hero.php'; 
+    
+    // Vitrina visual de los proyectos con mayor relevancia o impacto
+    require_once __DIR__ . '/includes/projects/projects-showcase.php'; 
 
-include 'includes/header.php';
-include 'includes/navbar.php';
+    require_once __DIR__ . '/includes/projects/projects-showcase.php';
 
-?>
-<main>
+require_once __DIR__ . '/includes/projects/projects-approach.php';
 
-        <!-- ======================================================
-             SECCIÓN: PROYECTOS
-        ======================================================= -->
-        <section id="proyectos">
-            <div class="container_proyecto">
+require_once __DIR__ . '/includes/projects/projects-process.php';
 
-                <h2 class="tituloProyectos">Proyectos</h2>
-                <!-- Aquí irá la galería o listado de proyectos -->
+    /* --- Fase 2: Exploración e Interacción --------------------------------- */
+    // Barra de herramientas para filtrar elementos (Categorías, UI/UX, Frontend)
+    require_once __DIR__ . '/includes/projects/projects-filters.php'; 
+    
+    // Cuadrícula dinámica donde se renderizan las tarjetas de proyectos
+    require_once __DIR__ . '/includes/projects/projects-grid.php'; 
 
-                <div class="card__container">
-                    <article class="card__article">
-                        <img src="img/imagen_slider_01.jpg" class="card__img"
-                            alt="Página principal de la tienda virtual MacRo Print">
+    /* --- Fase 3: Metodología y Respaldo Técnico -------------------------- */
+    // Explicación paso a paso de la metodología de desarrollo y diseño
+    require_once __DIR__ . '/includes/projects/projects-process.php'; 
+    
+    // Carrusel o rejilla de las tecnologías utilizadas en el portafolio
+    require_once __DIR__ . '/includes/projects/projects-technologies.php'; 
 
-                        <div class="card__data">
-                            <span class="card__description">Tienda On Line</span>
-                            <h3 class="card__title">MacRo Print</h3>
-                            <a href="href=" /proyectos/macro-print" class="card__button">Saber más</a>
-                        </div>
-                    </article>
+    /* --- Fase 4: Conversión Final ----------------------------------------- */
+    // Bloque de llamada a la acción (CTA) para invitar al usuario a cotizar
+    require_once __DIR__ . '/includes/projects/projects-cta.php'; 
+    ?> 
 
+      <?php 
+  /* --- ARCHIVOS COMPLEMENTARIOS / INVISIBLES ------------------------------ */
+  // CORRECCIÓN ARQUITECTÓNICA: El estudio de caso estructurado se traslada aquí.
+  // Al ser un componente detallado o una plantilla que suele abrirse mediante 
+  // modales/modos asíncronos, se inyecta fuera del flujo lineal de lectura del <main>.
+  require_once __DIR__ . '/includes/projects/projects-case-study.php'; 
+  ?>
 
+  </main> 
 
-                    <article class="card__article">
-                        <img src="img/imagen_slider_02.jpg" class="card__img" alt="imagen proyecto de diseño web">
-
-                        <div class="card__data">
-                            <span class="card__description">Diseño web</span>
-                            <h3 class="card__title">Diseño UI/UX</h3>
-                            <a href="href=" /proyectos/macro-print" class="card__button">Saber más</a>
-                        </div>
-                    </article>
-
-
-
-                    <article class="card__article">
-                        <img src="img/imagen_slider_03.jpg" class="card__img"
-                            alt="imagen proyecto diseños realizados para MacRo">
-
-                        <div class="card__data">
-                            <span class="card__description">Diseño Gráfico</span>
-                            <h3 class="card__title">SEO / Marketing</h3>
-                            <a href="href=" /proyectos/macro-print" class="card__button">Saber más</a>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
+  <?php 
+  // COMPONENTES GLOBALES DE CIERRE Y SCRIPTS
+  // Pie de página del sitio web con enlaces y redes sociales
+  require_once __DIR__ . '/includes/footer.php'; 
+  
+  // Scripts JavaScript de inicialización, librerías y animaciones finales
+  require_once __DIR__ . '/includes/scripts.php'; 
+  ?> 
 
 
-</main>
 
-
-    <!-- ===================== LIBRERÍAS JAVASCRIPT ===================== -->
-<?php include 'includes/scripts.php'; ?>
-
-<?php include 'includes/footer.php'; ?>
+</body> 
+</html>

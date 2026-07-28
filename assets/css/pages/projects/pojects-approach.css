@@ -1,0 +1,252 @@
+/* ==========================================================================
+   SECCIÓN: PROJECTS APPROACH (ENFOQUE DE PROYECTOS)
+   ========================================================================== */
+
+/* --- Contenedores Generales y Sección ------------------------------------ */
+.projects-approach {
+  position: relative;
+  padding-top: clamp(3rem, 5vw, 5rem);
+  padding-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.projects-approach__content {
+  width: 100%;
+}
+
+/* --- Rejilla de Distribución Principal (Layout Grid) ---------------------- */
+.projects-approach__wrapper {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  align-items: center;
+  gap: clamp(2.5rem, 4vw, 4rem);
+}
+
+/* ==========================================================================
+   COLUMNA ASIDE: COMPOSICIÓN ABSTRACTA VISUAL
+   ========================================================================== */
+.projects-approach__aside {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Máscara técnica y degradado desvanecedor lateral integrado */
+.projects-approach__aside::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  /* CORRECCIÓN: Se utiliza un degradado múltiple combinado en una sola regla background para evitar que la rejilla técnica se destruya */
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-background) 0%,
+      transparent 18%,
+      transparent 82%,
+      var(--color-background) 100%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size:
+    auto,
+    40px 40px,
+    40px 40px;
+  mask-image: radial-gradient(circle, black 45%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle, black 45%, transparent 90%);
+  pointer-events: none;
+}
+
+/* Destello / Resplandor Cyan de fondo ambiental para el bloque decorativo */
+.projects-approach__aside::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.18),
+    transparent 70%
+  );
+  filter: blur(80px);
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Contenedor relativo para el Lienzo de Dibujo */
+.projects-approach__canvas {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 520px;
+}
+
+/* --- Palabras Decorativas Gigantes (Absolute Words) ---------------------- */
+.projects-approach__word {
+  position: absolute;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.07;
+  user-select: none;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease; /* CORRECCIÓN: Definición explícita de transición */
+}
+
+.projects-approach__word:nth-of-type(1) {
+  top: 5%;
+  left: 10%;
+  font-size: 3.2rem;
+}
+.projects-approach__word:nth-of-type(2) {
+  top: 35%;
+  left: 28%;
+  font-size: 2.8rem;
+}
+.projects-approach__word:nth-of-type(3) {
+  top: 58%;
+  left: 2%;
+  font-size: 2.9rem;
+}
+.projects-approach__word:nth-of-type(4) {
+  bottom: 8%;
+  left: 18%;
+  font-size: 3rem;
+}
+
+/* Puntos separadores estéticos (Ocultos de forma predeterminada) */
+.projects-approach__dot {
+  display: none;
+}
+
+/* --- Capas Ambientales del Fondo de la Sección -------------------------- */
+.projects-approach__background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Esfera difuminada central profunda */
+.projects-approach__orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.1), transparent 50%);
+  filter: blur(90px);
+}
+
+/* Cuadrícula técnica del fondo general */
+.projects-approach__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 90%);
+}
+
+/* --- Líneas Abstractas de Acento Decorativo ------------------------------ */
+/* CORRECCIÓN ARQUITECTÓNICA: Se renombró la clase base a 'vector-line' para que no colisione con el diseño de la firma */
+.projects-approach__vector-line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 211, 238, 0.18),
+    transparent
+  );
+}
+
+.projects-approach__vector-line--1 {
+  top: 30%;
+  left: 10%;
+  width: 260px;
+  height: 1px;
+}
+.projects-approach__vector-line--2 {
+  bottom: 22%;
+  right: 8%;
+  width: 200px;
+  height: 1px;
+}
+
+/* ==========================================================================
+   COLUMNA IZQUIERDA: ESTRUCTURA, TEXTOS Y CONVERSIÓN
+   ========================================================================== */
+
+/* --- Estructura y Flujo Interno (Flexbox Content) ------------------------ */
+.projects-approach__header,
+.projects-approach__signature {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera del Enfoque */
+.projects-approach__header {
+  gap: 2rem;
+}
+
+/* Bloque inferior de cierre / firma semántica (<address>) */
+.projects-approach__signature {
+  position: relative; /* Restaura el flujo controlado */
+  gap: 0.75rem;
+}
+
+/* Contenedor del Cierre / Footer interno */
+.projects-approach__footer {
+  margin-top: 2rem;
+}
+
+/* --- Elementos de Texto y Tipografías ------------------------------------- */
+/* Etiqueta / Badge Introductoria */
+.projects-approach__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* Título de la Sección de Enfoque */
+.projects-approach__title {
+  max-width: 16ch;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+/* Descripción Informativa */
+.projects-approach__description {
+  max-width: 68ch;
+  line-height: 1.8;
+}
+
+/* --- Elementos de Firma Únicos -------------------------------------------- */
+/* Línea de acento colorida debajo de la firma */
+.projects-approach__line {
+  position: relative; /* CORRECCIÓN: Rompe la regla absolute de las líneas decorativas flotantes */
+  width: 120px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+}

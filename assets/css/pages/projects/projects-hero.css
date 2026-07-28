@@ -1,0 +1,430 @@
+/* ==========================================================================
+   SECCIÓN: PROJECTS HERO
+   ========================================================================== */
+
+/* --- Contenedor General de la Sección ------------------------------------ */
+.projects-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-start; /* NORMALIZACIÓN: Uso del valor estándar en lugar de 'start' */
+  min-height: calc(100svh - var(--navbar-height));
+
+  padding-top: 5rem;
+
+  padding-bottom: 4rem;
+  overflow: hidden; /* NOTA: El desborde lateral se controla reduciendo el desplazamiento de las tarjetas flotantes */
+  isolation: isolate;
+}
+
+/* --- Estructura en Rejilla y Contenedores ------------------------------- */
+.projects-hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 8rem);
+  padding-top: 1rem;
+}
+
+/* Columna Izquierda: Información y Acciones */
+.projects-hero__content,
+.projects-hero__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-hero__content {
+  justify-content: center;
+  gap: 4rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.projects-hero__text {
+  gap: 2rem;
+}
+
+/* --- Elementos de Texto y Tipografías ------------------------------------- */
+/* Etiqueta / Badge Introductoria */
+.projects-hero__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Título Principal */
+.projects-hero__title {
+  max-width: 10.5ch;
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  line-height: 1.05;
+}
+
+/* Descripción Informativa */
+.projects-hero__description {
+  max-width: 60ch;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* --- Bloque de Botones y Navegación --------------------------------------- */
+.projects-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   COLUMNA DERECHA: COMPOSICIÓN DE LA ESCENA VISUAL
+   ========================================================================== */
+.projects-hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Escena contenedora de los mockups */
+.projects-hero__scene {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 1 / 1;
+  transform: translateY(-2rem);
+}
+
+/* --- Capas de Fondo Ambiental (Glows, Formas y Rejillas) ----------------- */
+.projects-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Destello Principal Cyan */
+.projects-hero__glow {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 34rem;
+  height: 34rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.22),
+    transparent 70%
+  );
+  filter: blur(80px);
+  opacity: 0.8;
+}
+
+/* Destello Secundario de Apoyo */
+.projects-hero__glow--secondary {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.12),
+    transparent 70%
+  ); /* COHERENCIA: Mantiene la lógica del degradado */
+  filter: blur(80px); /* COHERENCIA: Mantiene el difuminado del ambiente */
+  width: 20rem;
+  height: 20rem;
+  top: 12%;
+  left: 20%;
+  opacity: 0.45;
+}
+
+/* Capa extra de gradiente ambiental */
+.projects-hero__gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 70% 40%,
+    rgba(34, 211, 238, 0.06),
+    transparent 45%
+  );
+}
+
+/* Anillo / Círculo geométrico de acento lineal */
+.projects-hero__shape {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: 10%;
+  top: 20%;
+  border-radius: 50%;
+  border: 1px solid rgba(34, 211, 238, 0.08);
+}
+
+/* Líneas de cuadrícula de fondo técnico con máscara radial */
+.projects-hero__grid-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle, black 45%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle, black 45%, transparent 90%);
+}
+
+/* --- Contenedores de Dispositivos (Mockups) ------------------------------ */
+.projects-hero__mockups {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Estructura común Glassmorphism para cada tarjeta de dispositivo */
+.projects-hero__device {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.45),
+    0 10px 25px rgba(34, 211, 238, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.45s ease;
+  will-change: transform;
+}
+
+/* Pseudo-reflejo diagonal Shimmer en la tarjeta */
+.projects-hero__device::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+/* Posiciones tridimensionales específicas y superposición por capas (Z-Index) */
+.projects-hero__device--desktop {
+  width: 78%;
+  aspect-ratio: 16 / 10;
+  top: 8%;
+  left: 8%;
+  z-index: 2;
+  transform: rotate(8deg) translateY(20px);
+  animation: deviceIn 0.9s 0.15s ease both;
+}
+
+.projects-hero__device--tablet {
+  width: 34%;
+  aspect-ratio: 4 / 5;
+  top: 38%;
+  right: 2%;
+  z-index: 4;
+  transform: rotate(8deg);
+  animation: deviceIn 0.9s 0.3s ease both;
+}
+
+.projects-hero__device--mobile {
+  width: 20%;
+  aspect-ratio: 9 / 19;
+  bottom: 8%;
+  left: 12%;
+  z-index: 5;
+  transform: rotate(-12deg) translateY(-25px);
+  animation: deviceIn 0.9s 0.45s ease both;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Efectos flotantes e interacción */
+.projects-hero__device:hover {
+  box-shadow: 0 45px 95px rgba(0, 0, 0, 0.6);
+}
+.projects-hero__device--desktop:hover {
+  transform: rotate(4deg) scale(1.02) translateY(10px);
+}
+.projects-hero__device--tablet:hover {
+  transform: rotate(4deg) scale(1.03);
+}
+.projects-hero__device--mobile:hover {
+  transform: rotate(-6deg) scale(1.04) translateY(-15px);
+}
+
+/* --- Marcos Interiores de Dispositivo (Frames) --------------------------- */
+.projects-hero__device-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0.85rem;
+}
+
+.projects-hero__device-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0.8rem;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+  z-index: 1;
+}
+
+/* --- Simulación de Barra de Navegador (Browser UI) --------------------- */
+.projects-hero__browser {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.projects-hero__browser span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* --- Pantalla Contenedora de Capturas (Screens) ------------------------- */
+.projects-hero__screen {
+  position: relative;
+  overflow: hidden;
+  height: calc(100% - 2.5rem);
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.1),
+    rgba(255, 255, 255, 0.03)
+  );
+  z-index: 2;
+}
+
+.projects-hero__screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* --- Interfaz de Usuario Simulada Nativa (Code UI Elements) ------------- */
+.projects-ui {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.projects-ui__hero {
+  height: 38%;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.3),
+    rgba(255, 255, 255, 0.06)
+  );
+}
+
+.projects-ui__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.projects-ui__card {
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Capa de Tarjetas Flotantes de Estadísticas (Floating Cards) -------- */
+.projects-hero__floating {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none; /* MEJORA: Evita que el contenedor invisible bloquee los hovers de los dispositivos */
+}
+
+.projects-card {
+  position: absolute;
+  min-width: 140px;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  pointer-events: auto; /* RESTAURACIÓN: Permite interactuar individualmente con las tarjetas */
+}
+
+.projects-card__label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.projects-card__value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary-light);
+}
+
+/* Posicionamiento de tarjetas de analíticas controlando el corte por overflow */
+.projects-card--analytics {
+  top: 12%;
+  right: 1%;
+}
+
+.projects-card--seo {
+  bottom: 12%;
+  left: 1%;
+}

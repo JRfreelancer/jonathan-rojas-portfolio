@@ -1,0 +1,92 @@
+/* ==========================================================================
+   SECCIÓN: PROJECTS SHOWCASE (VITRINA DE PROYECTO DESTACADO)
+   ========================================================================== */
+
+/* --- Contenedor Principal de la Sección ------------------------------------ */
+.projects-showcase {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 8rem; /* CORRECCIÓN: Se cambió padding-block: 8rem por padding-bottom ya que arriba se pisa con un padding-top específico */
+}
+
+/* --- Encabezado Informativo Central --------------------------------------- */
+.projects-showcase__header {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+/* Etiqueta / Badge Introductoria (Unificado y Estilizado con Glassmorphism) */
+.projects-showcase__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem; /* UNIFICACIÓN: Prevalece el relleno más amplio del segundo bloque */
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem; /* UNIFICACIÓN: Recuperado del primer bloque para mantener separación */
+}
+
+/* Punto indicador luminoso interior del badge */
+.projects-showcase__badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 14px var(--color-accent);
+}
+
+/* Título de la Vitrina (Unificado con Degradado de Texto Metálico) */
+.projects-showcase__title {
+  max-width: 10ch;
+  margin-inline: auto;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.05; /* UNIFICACIÓN: Prevalece el 1.05 más compacto sobre el 1.1 original */
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, #ffffff, #d9e5f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Descripción del Proyecto */
+.projects-showcase__description {
+  max-width: 60ch;
+  margin-inline: auto; /* CORRECCIÓN: Se actualiza a propiedad lógica y se elimina el margin-top físico */
+  margin-top: 2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ==========================================================================
+   ÁREA VISUAL: COMPOSICIÓN Y EFECTOS AMBIENTALES
+   ========================================================================== */
+.projects-showcase__visual {
+  position: relative;
+  margin-top: 3.5rem;
+  isolation: isolate;
+}
+
+/* Destello / Resplandor Cyan de fondo ambiental para el mockup */
+.projects-showcase__visual::before {
+  content: "";
+  position: absolute;
+  inset: 12%; /* OPTIMIZACIÓN: Ajustado del 15% original al 12% expandiendo sutilmente la luz */
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.18),
+    transparent 70%
+  );
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+}
